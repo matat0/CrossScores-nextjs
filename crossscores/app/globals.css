@@ -9,6 +9,9 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+.li{
+  color: white;
+}
 .header {
   color: white;
   background-color: #3a3b4f;
