@@ -10,7 +10,6 @@ function App() {
       <Header/>
       <Welcome/>
       <Module/>
-      <ApiTesting/>
     </div>
   );
 

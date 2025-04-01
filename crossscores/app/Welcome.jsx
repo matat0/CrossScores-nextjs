@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image"
 import img1 from './assets/img1.png'
 import img2 from './assets/img2.png'
 import img3 from './assets/img3.png'
@@ -19,7 +20,7 @@ function Welcome() {
     return(
         <div className="wcontainer">
             <div className="welcome-module">
-                <img className='welcome-img' src={img} alt='Picture of Sport' width='200px'></img>
+                <Image className='welcome-img' src={img} alt='Picture of Sport' width='200px'/>
                 <h2>Welcome To CrossScores!</h2>
                 <p id="wbodytext">
                     Create fully customizeable trackers for any sports team
