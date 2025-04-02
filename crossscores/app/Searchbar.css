@@ -1,0 +1,45 @@
+span{
+    color:white;
+}
+
+.container{
+    display: flex; 
+    margin: 2rem; 
+    flex-direction: column; 
+    justify-content: center; 
+    max-width: 32rem; 
+
+}
+
+.search-form{
+    position: relative; 
+    width: 500px;
+}
+
+.search-input{
+    padding: 1rem; 
+    border-radius: 9999px; 
+    width: 100%; 
+    
+}
+
+.search-button{
+    position: absolute; 
+    right: 0.25rem; 
+    top: 50%; 
+    padding: 1rem; 
+    border-radius: 9999px; 
+}
+
+.search-items{
+    display: flex; 
+    position: absolute; 
+    top: 5rem; 
+    left: 50%; 
+    padding: 1rem; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+    border-radius: 0.75rem; 
+    width: 100%; 
+    color: #ffffff; 
+}

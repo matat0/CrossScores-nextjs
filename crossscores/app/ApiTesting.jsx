@@ -1,6 +1,7 @@
 "use client";
 import React, {useState, useEffect, useContext} from "react";
 import supabase from "./supabase";
+import "./ApiTesting.css"
 
 function ApiTesting(){
 
@@ -28,7 +29,7 @@ function ApiTesting(){
 
         const interval = setInterval(() => {
             fetchTeams();
-        }, 300000)
+        }, 30000000) //time in ms to fetch teams
 
         return () => clearInterval(interval);
     }, []);
@@ -42,7 +43,9 @@ function ApiTesting(){
                 tla: team.tla || "000",
                 crest_url: team.crest || "no_crest_url.png",
                 leagues: [],
-            })))
+            })), 
+            {onConflict: ['name']}
+        );
 
         if(error){
             console.error("Error inserting into supabase: ", error);
@@ -52,14 +55,14 @@ function ApiTesting(){
     }
     
 
-    return (<div>
+    return (<div className="container">
                 <h2>Team test:</h2>
                 <ul>
-                    {teams.map((team) => {
+                    {/* {teams.map((team) => {
                         console.log(`trying to add team: ${team.name} with id: ${team.id} shortname: ${team.shortname} and tla: ${team.tla}`);
                         return <li key={team.id}>{team.name}</li>
                         
-                    })}
+                    })} */}
                 </ul>
                 </div>)
 
