@@ -11,7 +11,6 @@ function App() {
       <Header/>
       <Welcome/>
       <Module/>
-      <Searchbar/>
     </div>
   );
 

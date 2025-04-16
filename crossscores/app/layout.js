@@ -9,6 +9,9 @@ const nunito = Nunito ({
 export const metadata = {
   title: "Cross Scores Tracker",
   description: "Created by Matthew Bangit & Yohannes Gebrechirstos",
+  icons: {
+    icon: "/logo.ico",
+  }
 };
 
 export default function RootLayout({ children }) {
