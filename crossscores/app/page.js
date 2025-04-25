@@ -3,6 +3,7 @@ import Welcome from './Welcome.jsx'
 import Module from './Module.jsx'
 import ApiTesting from './ApiTesting.jsx';
 import Searchbar from './searchbar.jsx';
+import Dropdown from './Dropdown.jsx';
 
 function App() {
 

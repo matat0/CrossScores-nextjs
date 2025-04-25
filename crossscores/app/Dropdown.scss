@@ -9,12 +9,14 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
 .container {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: $bg-inner;
     padding:50px;
     margin:10px;
     width:500px;
     height:300px;
     border-radius:8px;
+    z-index: 10;
 }
 
 .input {
