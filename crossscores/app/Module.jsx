@@ -1,17 +1,26 @@
+"use client";
 import './module.css'
-//import React, {useState} from 'react'
+import Dropdown from './Dropdown';
+import {useState} from 'react'
+import Searchbar from './Searchbar';
+
+
 
 function Module() {
-    
+    const [showSearch, setShowSearch] = useState(false);
+
     return(
-        <div className="module">
-            <form>
-                <button className="Btn">
+        <>
+            {showSearch ? (<Searchbar/>) : ""}
+            <div className="module">
+                
+                <button className="Btn" onClick={() => setShowSearch(!showSearch)}>
                     <div className="sign">+</div>
                     <div className="text">Create</div>
-              </button>
-            </form>
-        </div>
+                </button>
+                
+            </div>
+        </>
     );
 
 }

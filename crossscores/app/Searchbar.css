@@ -1,5 +1,5 @@
 span{
-    color:white;
+    color:rgb(0, 0, 0);
 }
 
 .container{
@@ -11,6 +11,10 @@ span{
 
 }
 
+img{
+    height: 25px;
+    width: 25px;
+}
 .search-form{
     position: relative; 
     width: 500px;
@@ -35,11 +39,10 @@ span{
     display: flex; 
     position: absolute; 
     top: 5rem; 
-    left: 50%; 
     padding: 1rem; 
     flex-direction: column; 
-    gap: 0.5rem; 
-    border-radius: 0.75rem; 
+    border-width: 0px;
     width: 100%; 
     color: #ffffff; 
 }
+

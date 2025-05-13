@@ -12,7 +12,7 @@ const Searchbar = () => {
 
   useEffect(() => {
     const fetchTeams = async () => {
-      const {data, error} = await supabase.from("soccer-teams").select("name");
+      const {data, error} = await supabase.from("soccer-teams").select("name, crest_url");
       console.log("Supabase data: ", data)
 
       if(error){
@@ -20,9 +20,13 @@ const Searchbar = () => {
         return;
       }
 
-      
 
-      const newTeamList = data.map(row => row.name);
+      const newTeamList = data
+                            .filter(row => row.name)
+                            .map(row => ({
+                              name:row.name, 
+                              crest_url: row.crest_url}
+                            ));
       console.log("Team names:", newTeamList);
       setTeamList(newTeamList);
       console.log("teamList: ", teamList)
@@ -37,17 +41,19 @@ const Searchbar = () => {
           return false
       }
       if(teamList && teamList.length > 0){
-        setActiveSearch(teamList.filter(t => t && t.toLowerCase().includes(e.target.value)).slice(0,8))
+        setActiveSearch(
+          teamList
+            .filter(t => t && t.name.toLowerCase().includes(e.target.value))
+            .slice(0,8))
       }
   }
 
+ 
   return (
-    <form className='search-form'>
+    <form className='search-form' onSubmit={(e) => e.preventDefault()}>
         <div className="search-container">
             <input type="search" placeholder='Type Here' className='search-input' onChange={(e) => handleSearch(e)}/>
-            <button className='search-button'>
-                <AiOutlineSearch />
-            </button>
+            
         </div>
 
         {
@@ -55,7 +61,10 @@ const Searchbar = () => {
                 <div className="search-items">
                     {
                         activeSearch.map(s => (
-                            <span key={s}>{s}</span>
+                            <button key={s.name} type="button" onClick={() => console.log("clicked ", s)}>
+                              <img src={s.crest_url} alt={`crest  `} className="crest-img" />
+                              <span >{s.name} </span>
+                            </button>
                         ))
                     }
                 </div>
