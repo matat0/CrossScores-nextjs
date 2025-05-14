@@ -1,5 +1,5 @@
 "use client";
-import './Module/module.css'
+import './Module/Module.css'
 import Dropdown from './Dropdown';
 import {useState} from 'react'
 import Searchbar from './Searchbar';
