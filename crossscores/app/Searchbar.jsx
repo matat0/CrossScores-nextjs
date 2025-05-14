@@ -63,7 +63,7 @@ const Searchbar = ({ closeDropdown, setSelectedTeam }) => {
   return (
     <form className='search-form' onSubmit={(e) => e.preventDefault()}>
         <div className="search-container">
-            <input type="search" placeholder='Type Here' className='search-input' onChange={(e) => handleSearch(e)}/>
+            <input type="search" placeholder='Search your favorite sports teams' className='search-input' onChange={(e) => handleSearch(e)}/>
             
         </div>
 
