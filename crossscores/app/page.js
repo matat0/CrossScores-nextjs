@@ -10,7 +10,6 @@ function App() {
   return(
     <div className="app-container">
       <Header/>
-      <Welcome/>
       <Module/>
     </div>
   );

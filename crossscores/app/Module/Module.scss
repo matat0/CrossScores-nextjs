@@ -21,6 +21,7 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
     justify-content: center;
     text-align:center;
     z-index: 3;
+    position: relative;
   }
   
   .Btn {
@@ -85,3 +86,15 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
     transform: translate(2px ,2px);
   }
   /*Modules and Tracker Elements*/
+
+.dropdown-container {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  z-index:100;
+
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+}

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useEffect, useState } from 'react'
 import supabase from './supabase'
@@ -60,7 +60,7 @@ const Searchbar = () => {
                 <div className="search-items">
                     {
                         activeSearch.map(s => (
-                            <button key={s.name} type="button" onClick={() => console.log("clicked ", s)}>
+                            <button className="button-results" key={s.name} type="button" onClick={() => console.log("clicked ", s)}>
                               <img src={s.crest_url} alt={`crest  `} className="crest-img" />
                               <span >{s.name} </span>
                             </button>
