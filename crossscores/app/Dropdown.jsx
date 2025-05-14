@@ -1,5 +1,5 @@
 import './Dropdown/Dropdown.css'
-import Searchbar from './searchbar.jsx';
+import Searchbar from './Searchbar.jsx';
 
 function Dropdown() {
 
