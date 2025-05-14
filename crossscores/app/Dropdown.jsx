@@ -1,11 +1,20 @@
-import './Dropdown.css'
+import './Dropdown/Dropdown.css'
+import Searchbar from './searchbar.jsx';
 
 function Dropdown() {
 
-    return(
+    /*return(
         <div className="container">
             <input className="input" placeholder="Search your club, country, sport"/>
 
+        </div>
+    );*/
+
+    return(
+        <div className='container'>
+            <div className='module-container'>
+                <Searchbar/>
+            </div>
         </div>
     );
 
