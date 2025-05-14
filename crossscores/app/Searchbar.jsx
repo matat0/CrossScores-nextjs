@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import supabase from './supabase'
 import "./Searchbar/Searchbar.css"
 
-const Searchbar = () => {
+const Searchbar = ({ closeDropdown }) => {
 
   const[teamList, setTeamList] = useState([]);
   const [activeSearch, setActiveSearch] = useState([])
@@ -47,6 +47,14 @@ const Searchbar = () => {
       }
   }
 
+  function handleClick(s) {
+    console.log(s);
+    if (closeDropdown) {
+      closeDropdown();
+      console.log('it worked');
+    }
+  }
+
  
   return (
     <form className='search-form' onSubmit={(e) => e.preventDefault()}>
@@ -60,7 +68,7 @@ const Searchbar = () => {
                 <div className="search-items">
                     {
                         activeSearch.map(s => (
-                            <button className="button-results" key={s.name} type="button" onClick={() => console.log("clicked ", s)}>
+                            <button className="button-results" key={s.name} type="button" onClick={() => handleClick(s)}>
                               <img src={s.crest_url} alt={`crest  `} className="crest-img" />
                               <span >{s.name} </span>
                             </button>

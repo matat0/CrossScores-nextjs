@@ -2,12 +2,12 @@
 import './Dropdown/Dropdown.css'
 import Searchbar from './Searchbar.jsx';
 
-function Dropdown() {
+function Dropdown({ closeDropdown }) {
 
     return(
         <div className='search-module-container'>
             <div className='module-container'>
-                <Searchbar/>
+                <Searchbar closeDropdown={closeDropdown}/>
             </div>
         </div>
     );

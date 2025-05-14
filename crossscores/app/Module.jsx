@@ -29,7 +29,7 @@ function Module() {
             {showSearch ? (
                 <>
                     <div className="dropdown-container" onClick={backgroundClick}>
-                        <Dropdown/>  
+                        <Dropdown closeDropdown={closeDropdown}/>  
                     </div>
                 </>
             ) : ""}
