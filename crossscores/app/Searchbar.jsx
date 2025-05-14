@@ -1,9 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import {AiOutlineSearch} from 'react-icons/ai'
 import supabase from './supabase'
-import "./Searchbar.css"
+import "./Searchbar/Searchbar.css"
 
 const Searchbar = () => {
 

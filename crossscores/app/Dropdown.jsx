@@ -1,4 +1,4 @@
-import './Dropdown.css'
+import './Dropdown/Dropdown.css'
 import Searchbar from './searchbar.jsx';
 
 function Dropdown() {
@@ -10,9 +10,11 @@ function Dropdown() {
         </div>
     );*/
 
-    return( 
+    return(
         <div className='container'>
-            <Searchbar/>
+            <div className='module-container'>
+                <Searchbar/>
+            </div>
         </div>
     );
 

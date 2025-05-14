@@ -1,5 +1,5 @@
 "use client";
-import './module.css'
+import './Module/module.css'
 import Dropdown from './Dropdown';
 import {useState} from 'react'
 import Searchbar from './Searchbar';
@@ -11,7 +11,7 @@ function Module() {
 
     return(
         <>
-            {showSearch ? (<Searchbar/>) : ""}
+            {showSearch ? (<Dropdown/>) : ""}
             <div className="module">
                 
                 <button className="Btn" onClick={() => setShowSearch(!showSearch)}>
