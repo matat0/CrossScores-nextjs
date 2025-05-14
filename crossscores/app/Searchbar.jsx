@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import supabase from './supabase'
 import "./Searchbar/Searchbar.css"
 
-const Searchbar = ({ closeDropdown }) => {
+const Searchbar = ({ closeDropdown, setSelectedTeam }) => {
 
   const[teamList, setTeamList] = useState([]);
   const [activeSearch, setActiveSearch] = useState([])
@@ -49,9 +49,13 @@ const Searchbar = ({ closeDropdown }) => {
 
   function handleClick(s) {
     console.log(s);
+
+    if (setSelectedTeam) {
+      setSelectedTeam(s.name);
+    }
+
     if (closeDropdown) {
       closeDropdown();
-      console.log('it worked');
     }
   }
 

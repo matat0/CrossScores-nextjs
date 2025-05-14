@@ -8,6 +8,7 @@ import Searchbar from './Searchbar';
 
 function Module() {
     const [showSearch, setShowSearch] = useState(false);
+    const [selectedTeam, setSelectedTeam] = useState(false);
 
     function openDropdown() {
         setShowSearch(true);
@@ -29,18 +30,25 @@ function Module() {
             {showSearch ? (
                 <>
                     <div className="dropdown-container" onClick={backgroundClick}>
-                        <Dropdown closeDropdown={closeDropdown}/>  
+                        <Dropdown 
+                        closeDropdown={closeDropdown}
+                        setSelectedTeam={setSelectedTeam}
+                        />  
                     </div>
                 </>
             ) : ""}
 
             <div className="module">
-                
-                <button className="Btn" onClick={openDropdown}>
-                    <div className="sign">+</div>
-                    <div className="text">Create</div>
-                </button>
-                
+                {!selectedTeam ? (
+                    <button className="Btn" onClick={openDropdown}>
+                        <div className="sign">+</div>
+                        <div className="text">Create</div>
+                    </button>
+                ) : (
+                    <div className="selected-team">
+                        {selectedTeam}
+                    </div>
+                )}
             </div>
             
         </>
