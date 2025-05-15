@@ -20,7 +20,7 @@
 .Btn {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 45px;
   height: 45px;
   border: none;
@@ -55,6 +55,7 @@
   font-size: 1.2em;
   font-weight: 500;
   transition-duration: 0.3s;
+  text-align: center;
 }
 
 /* hover effect on button width */
@@ -73,7 +74,7 @@
 /* hover effect button's text */
 .Btn:hover .text {
   opacity: 1;
-  width: 70%;
+  width: 80%;
   transition-duration: 0.3s;
   padding-right: 20px;
 }

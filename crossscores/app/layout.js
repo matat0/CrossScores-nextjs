@@ -1,4 +1,6 @@
 import { Nunito } from "next/font/google";
+import { createTheme } from '@mui/material/styles';
+import { white } from '@mui/material/colors';
 import "./Globals/globals.css";
 
 const nunito = Nunito ({
@@ -13,6 +15,12 @@ export const metadata = {
     icon: "/logo.ico",
   }
 };
+
+const theme = createTheme({
+  palette: {
+    primary: white,
+  },
+});
 
 export default function RootLayout({ children }) {
   return (
