@@ -42,7 +42,7 @@ function Module() {
                 {!selectedTeam ? (
                     <button className="Btn" onClick={openDropdown}>
                         <div className="sign">+</div>
-                        <div className="text">Create</div>
+                        <div className="text">Add</div>
                     </button>
                 ) : (
                     <div className="selected-team">

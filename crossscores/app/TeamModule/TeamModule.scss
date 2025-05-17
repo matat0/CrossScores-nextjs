@@ -1,0 +1,26 @@
+$bg: rgba(19,20,31,1);
+$bg-module: #3a3b4f;
+$bg-inner: #2b2c3b;
+$bg-button: #222231;
+$nunito: "Nunito", sans-serif;
+$shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
+
+/*Modules and Tracker Elements*/
+.TeamModule {
+    background-color: $bg-module;
+    padding: 25px;
+    margin: 50px;
+    border-radius:8px;
+    box-shadow: $shadow-window;
+    height:450px;
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    gap:10px;
+    justify-content: center;
+    text-align:center;
+    z-index: 3;
+    position: relative;
+  }
+  

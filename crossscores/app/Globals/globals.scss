@@ -27,13 +27,27 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
+    align-items: center;
     box-shadow: $shadow-window;
     padding: 0 15px;
     position: relative;
     z-index:4;
-  }
-  
+}
+
+.workspace-container {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+
+.burger-container {
+    position:absolute;
+    left:15px;
+}
+
 .header-label {
+    position:fixed;
     flex-grow: 1;
     display: flex;
     justify-content: center;
