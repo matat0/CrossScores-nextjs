@@ -17,6 +17,10 @@
   position: relative;
 }
 
+.team-table-container {
+  border-width: 20px;
+}
+
 #team-module-header {
   margin: 0px 10px 0px 10px;
   color: white;
@@ -26,9 +30,26 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  margin-bottom: 30px;
 }
 
 #team-crest-url {
   width: 40px;
   height: 40px;
+}
+
+.crest-name-container {
+  display: flex;
+  align-items: center;
+}
+
+.crest-name-container img {
+  margin-right: 10px;
+}
+
+#league-emblem {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  padding: 5px;
 }/*# sourceMappingURL=TeamModule.css.map */
