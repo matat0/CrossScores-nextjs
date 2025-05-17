@@ -11,7 +11,7 @@ const Searchbar = ({ closeDropdown, setSelectedTeam }) => {
 
   useEffect(() => {
     const fetchTeams = async () => {
-      const {data, error} = await supabase.from("soccer-teams").select("name, crest_url");
+      const {data, error} = await supabase.from("soccer-teams").select("name, crest_url, id");
       console.log("Supabase data: ", data)
 
       if(error){
@@ -24,7 +24,8 @@ const Searchbar = ({ closeDropdown, setSelectedTeam }) => {
                             .filter(row => row.name)
                             .map(row => ({
                               name:row.name, 
-                              crest_url: row.crest_url}
+                              crest_url: row.crest_url,
+                              id:row.id}
                             ));
       console.log("Team names:", newTeamList);
       setTeamList(newTeamList);
@@ -74,7 +75,7 @@ const Searchbar = ({ closeDropdown, setSelectedTeam }) => {
                         activeSearch.map(s => (
                             <button className="button-results" key={s.name} type="button" onClick={() => handleClick(s)}>
                               <img src={s.crest_url} alt={`crest  `} className="crest-img" />
-                              <span >{s.name} </span>
+                              <span >{s.name}, {s.id} </span>
                             </button>
                         ))
                     }
