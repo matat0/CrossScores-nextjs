@@ -22,8 +22,8 @@ function TeamModule({team}) {
     const [matchList, setMatchList] = useState([]);
     const [scheduledMatch, setScheduledMatch] = useState(null); 
 
-    function createMatch(home, away, date, league, score, status, homeCrest, awayCrest) {
-        return { home, away, date, league, score, status, homeCrest, awayCrest};
+    function createMatch(home, away, date, time,  league, score, status, homeCrest, awayCrest) {
+        return { home, away, date, time, league, score, status, homeCrest, awayCrest};
     }
 
 
@@ -45,7 +45,8 @@ function TeamModule({team}) {
                 const away = match.awayTeam.tla;
                 const homeCrest = match.homeTeam.crest;
                 const awayCrest = match.awayTeam.crest;
-                const date = dayjs.utc(match.utcDate).local().format('YYYY-MM-DD h:mm A');
+                const date = dayjs.utc(match.utcDate).local().format('MMM DD, YYYY');
+                const time = dayjs.utc(match.utcDate).local().format('h:mm A');
                 const league = match.competition.emblem;
                 const status = match.status;
 
@@ -53,7 +54,7 @@ function TeamModule({team}) {
                 if (status === "FINISHED") {
                     //if match is finished, add to list
                     score = `${match.score.fullTime.home} - ${match.score.fullTime.away}`;
-                    recent.push(createMatch(home, away, date, league, score, status, homeCrest, awayCrest));
+                    recent.push(createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest));
                 }
             }
 
@@ -66,11 +67,12 @@ function TeamModule({team}) {
                     const away = match.awayTeam.tla;
                     const homeCrest = match.homeTeam.crest;
                     const awayCrest = match.awayTeam.crest;
-                    const date = dayjs.utc(match.utcDate).local().format('YYYY-MM-DD h:mm A');
+                    const date = dayjs.utc(match.utcDate).local().format('MMM DD, YYYY');
+                    const time = dayjs.utc(match.utcDate).local().format('h:mm A');
                     const league = match.competition.emblem;
                     const status = match.status;
                     const score = "-";
-                    upcoming = createMatch(home, away, date, league, score, status, homeCrest, awayCrest);
+                    upcoming = createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest);
                     break;
                 }
             }
@@ -109,7 +111,16 @@ function TeamModule({team}) {
                             {scheduledMatch && (
                                 
                                 <TableRow sx={{ backgroundColor: "#222231", boxShadow: 3 }}>
-                                    <TableCell>{scheduledMatch.date}</TableCell>
+                                    <TableCell>
+                                        <div className="date-container">
+                                            <div>
+                                               {scheduledMatch.date} 
+                                            </div>
+                                           <div>
+                                                {scheduledMatch.time}
+                                           </div>
+                                        </div>
+                                        </TableCell>
                                     <TableCell>
                                         <div className="crest-name-container" id="upcoming-home-container">
                                             <img src={scheduledMatch.homeCrest}></img>
@@ -130,7 +141,16 @@ function TeamModule({team}) {
                             )}
                             {matchList.map((match, index) => (
                                 <TableRow key={index} sx={{boxShadow: 3 }}>
-                                    <TableCell>{match.date}</TableCell>
+                                    <TableCell>
+                                        <div className="date-container">
+                                            <div>
+                                                {match.date}
+                                            </div>
+                                            <div>
+                                                {match.time} 
+                                            </div>
+                                        </div>
+                                        </TableCell>
                                     <TableCell>
                                         <div className="crest-name-container" id="past-home-container">
                                             <img src={match.homeCrest}></img>

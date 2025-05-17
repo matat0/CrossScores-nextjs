@@ -33,9 +33,9 @@ const Searchbar = () => {
                               crest_url: row.crest_url,
                               id:row.id}
                             ));
-      console.log("Team names:", newTeamList);
+      //console.log("Team names:", newTeamList);
       setTeamList(newTeamList);
-      console.log("teamList: ", teamList)
+      //console.log("teamList: ", teamList)
     };
     fetchTeams();
   },[]);
@@ -57,13 +57,13 @@ const Searchbar = () => {
   function handleClick(s) {
     //add something that stops you from picking the same team twice
 
-    console.log(s);
+    //console.log(s);
 
     if(addTeam){
-      console.log("successfully drilled to click: ", s.id)
+      //console.log("successfully drilled to click: ", s.id)
       addTeam(s)
     } else{
-      console.log("didnt drill")
+      //console.log("didnt drill")
     }
     if (setSelectedTeam) {
       setSelectedTeam(s.id);
