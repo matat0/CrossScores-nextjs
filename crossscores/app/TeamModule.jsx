@@ -17,8 +17,8 @@ function TeamModule({team}) {
     const [matchList, setMatchList] = useState([]);
     const [scheduledMatch, setScheduledMatch] = useState(null); 
 
-    function createMatch(home, away, date, league, score, status) {
-        return { home, away, date, league, score, status };
+    function createMatch(home, away, date, league, score, status, homeCrest, awayCrest) {
+        return { home, away, date, league, score, status, homeCrest, awayCrest};
     }
 
 
@@ -35,9 +35,12 @@ function TeamModule({team}) {
 
             //loop backwards from end of array (chronological order) to get most recent matches
             for (let i = matches.length - 1; i >= 0 && recent.length < 3; i--) {
+                console.log(matches[i]);
                 const match = matches[i];
-                const home = match.homeTeam.name;
-                const away = match.awayTeam.name;
+                const home = match.homeTeam.tla;
+                const away = match.awayTeam.tla;
+                const homeCrest = match.homeTeam.crest;
+                const awayCrest = match.awayTeam.crest;
                 const date = match.utcDate;
                 const league = match.competition.code;
                 const status = match.status;
@@ -55,8 +58,11 @@ function TeamModule({team}) {
                 if (match.status === "SCHEDULED" || match.status === "TIMED") {
                     //if match is upcoming, replace match
                     //most recently replaced match will be the soonest match
-                    const home = match.homeTeam.name;
-                    const away = match.awayTeam.name;
+                    console.log(matches[i]);
+                    const home = match.homeTeam.tla;
+                    const away = match.awayTeam.tla;
+                    const homeCrest = match.homeTeam.crest;
+                    const awayCrest = match.awayTeam.crest;
                     const date = match.utcDate;
                     const league = match.competition.code;
                     const status = match.status;
@@ -79,8 +85,8 @@ function TeamModule({team}) {
             
             <div className="TeamModule">
                 <div id='title-container'>
+                    <img src={team.crest_url} id="team-crest-url"></img>
                     <h2 id='team-module-header'>{teamName}</h2>
-                    <img src={team.crest_url}></img>
                 </div>
                 <TableContainer component={Paper} sx={{backgroundColor: 'transparent'}}>
                     <Table sx={{ color: "white" }}>
@@ -97,9 +103,15 @@ function TeamModule({team}) {
                             {scheduledMatch && (
                                 <TableRow sx={{ backgroundColor: "#222231" }}>
                                     <TableCell sx={{ color: "white" }}>{scheduledMatch.date}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{scheduledMatch.home}</TableCell>
+                                    <TableCell sx={{ color: "white" }}>
+                                        <div>
+                                            {scheduledMatch.home}
+                                        </div>
+                                    </TableCell>
                                     <TableCell sx={{ color: "white" }}>{scheduledMatch.score}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{scheduledMatch.away}</TableCell>
+                                    <TableCell sx={{ color: "white" }}>
+                                        {scheduledMatch.away}
+                                    </TableCell>
                                     <TableCell sx={{ color: "white" }}>{scheduledMatch.league}</TableCell>
                                 </TableRow>
                             )}

@@ -25,11 +25,18 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
   }
 
 #team-module-header {
+  margin: 0px 10px 0px 10px;
   color:white;
 }
 
 #title-container {
+  align-items:center;
   display:flex;
   flex-direction:row;
+}
+
+#team-crest-url {
+  width:40px;
+  height:40px;
 }
   
