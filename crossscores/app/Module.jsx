@@ -1,14 +1,14 @@
 "use client";
 import './Module/Module.css'
 import Dropdown from './Dropdown';
-import {useState} from 'react'
+import {useState, useContext, createContext} from 'react'
 import Searchbar from './Searchbar';
 
-
+const ModuleWindowContext = createContext();
 
 function Module() {
     const [showSearch, setShowSearch] = useState(false);
-    const [selectedTeam, setSelectedTeam] = useState(false);
+    const [selectedTeam, setSelectedTeam] = useState("");
 
     function openDropdown() {
         setShowSearch(true);
@@ -24,31 +24,30 @@ function Module() {
         }
     }
 
+    const contextValue = {
+        closeDropdown,
+        setSelectedTeam
+    }
     return(
         <>
 
             {showSearch ? (
                 <>
                     <div className="dropdown-container" onClick={backgroundClick}>
-                        <Dropdown 
-                        closeDropdown={closeDropdown}
-                        setSelectedTeam={setSelectedTeam}
-                        />  
+                        <ModuleWindowContext.Provider value={contextValue}>
+                            <Dropdown />  
+                        </ModuleWindowContext.Provider>
                     </div>
                 </>
             ) : ""}
 
             <div className="module">
-                {!selectedTeam ? (
-                    <button className="Btn" onClick={openDropdown}>
-                        <div className="sign">+</div>
-                        <div className="text">Add</div>
-                    </button>
-                ) : (
-                    <div className="selected-team">
-                        {selectedTeam}
-                    </div>
-                )}
+                
+                <button className="Btn" onClick={openDropdown}>
+                    <div className="sign">+</div>
+                    <div className="text">Add</div>
+                </button>
+                
             </div>
             
         </>
@@ -57,3 +56,4 @@ function Module() {
 }
 
 export default Module
+export {ModuleWindowContext}

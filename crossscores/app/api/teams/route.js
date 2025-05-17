@@ -23,7 +23,7 @@ export async function GET(request){
   try {
     if (type === "by-all-leagues") {
       // by all leagues
-      console.log("trying to get all leagues")
+      //console.log("trying to get all leagues")
       for (const code of leagueCodes) {
         const response = await fetch(`https://api.football-data.org/v4/competitions/${code}/teams`, {
           headers: {
@@ -39,7 +39,7 @@ export async function GET(request){
 
         const data = await response.json();
 
-        console.log(data);
+        //console.log(data);
         // push each team with league info
         for (const team of data.teams) {
           allTeams.push({

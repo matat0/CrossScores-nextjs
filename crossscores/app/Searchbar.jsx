@@ -1,13 +1,20 @@
 "use client";
 
-import React, { useEffect, useState } from 'react'
+import { TrackedTeamsContext } from './ModuleGrid';
+import { ModuleWindowContext } from './Module';
+import React, { useContext, useEffect, useState } from 'react'
 import supabase from './supabase'
 import "./Searchbar/Searchbar.css"
 
-const Searchbar = ({ closeDropdown, setSelectedTeam }) => {
-
+const Searchbar = () => {
+  const {addTeam} = useContext(TrackedTeamsContext);
+  const {closeDropdown,
+        setSelectedTeam
+        } = useContext(ModuleWindowContext);
   const[teamList, setTeamList] = useState([]);
   const [activeSearch, setActiveSearch] = useState([])
+
+
 
   useEffect(() => {
     const fetchTeams = async () => {
@@ -51,8 +58,14 @@ const Searchbar = ({ closeDropdown, setSelectedTeam }) => {
   function handleClick(s) {
     console.log(s);
 
+    if(addTeam){
+      console.log("successfully drilled to click: ", s.id)
+      addTeam(s.id)
+    } else{
+      console.log("didnt drill")
+    }
     if (setSelectedTeam) {
-      setSelectedTeam(s.name);
+      setSelectedTeam(s.id);
     }
 
     if (closeDropdown) {
