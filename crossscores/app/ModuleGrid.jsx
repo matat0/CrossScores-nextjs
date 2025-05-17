@@ -9,9 +9,9 @@ const TrackedTeamsContext = createContext();
 function ModuleGrid(){
     const [trackedTeamList, setTrackedTeamList] = useState([]);
 
-    function addTeam(teamID)  {
-        if(!trackedTeamList.includes(teamID))
-            setTrackedTeamList([...trackedTeamList, teamID])
+    function addTeam(teamObject)  {
+        if(!trackedTeamList.some(t => t.id === teamObject.id))
+            setTrackedTeamList([...trackedTeamList, teamObject])
         else{
             alert("you already added this team");
         }
@@ -31,8 +31,8 @@ function ModuleGrid(){
         <>
             <TrackedTeamsContext.Provider value={contextValue}>
                 {
-                    trackedTeamList.map((id) => (
-                    <TeamModule key={id} teamID={id}/>
+                    trackedTeamList.map((teamObject) => (
+                    <TeamModule key={teamObject.id} team={teamObject}/>
                     ))
                 }
                 <Module/>

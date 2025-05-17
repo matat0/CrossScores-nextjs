@@ -61,7 +61,7 @@ const Searchbar = () => {
 
     if(addTeam){
       console.log("successfully drilled to click: ", s.id)
-      addTeam(s.id, s.crest_url)
+      addTeam(s)
     } else{
       console.log("didnt drill")
     }

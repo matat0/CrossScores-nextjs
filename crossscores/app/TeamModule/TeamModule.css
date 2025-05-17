@@ -19,4 +19,9 @@
 
 #team-module-header {
   color: white;
+}
+
+#title-container {
+  display: flex;
+  flex-direction: row;
 }/*# sourceMappingURL=TeamModule.css.map */

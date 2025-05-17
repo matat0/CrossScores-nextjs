@@ -10,8 +10,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 
-function TeamModule({teamID}) {
+function TeamModule({team}) {
     
+    const teamID = team.id;
+    const teamName = team.name;
     const [matchList, setMatchList] = useState([]);
     const [scheduledMatch, setScheduledMatch] = useState(null); 
 
@@ -76,7 +78,10 @@ function TeamModule({teamID}) {
         <>
             
             <div className="TeamModule">
-                <h2 id='team-module-header'></h2>
+                <div id='title-container'>
+                    <h2 id='team-module-header'>{teamName}</h2>
+                    <img src={team.crest_url}></img>
+                </div>
                 <TableContainer component={Paper} sx={{backgroundColor: 'transparent'}}>
                     <Table sx={{ color: "white" }}>
                         <TableHead>
