@@ -76,6 +76,7 @@ function TeamModule({teamID}) {
         <>
             
             <div className="TeamModule">
+                <h2 id='team-module-header'></h2>
                 <TableContainer component={Paper} sx={{backgroundColor: 'transparent'}}>
                     <Table sx={{ color: "white" }}>
                         <TableHead>
