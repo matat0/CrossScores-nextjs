@@ -83,8 +83,8 @@ function TeamModule({teamID}) {
                             <TableRow>
                                 <TableCell sx={{ color: "white" }}>Date</TableCell>
                                 <TableCell sx={{ color: "white" }}>Home</TableCell>
-                                <TableCell sx={{ color: "white" }}>Away</TableCell>
                                 <TableCell sx={{ color: "white" }}>Score</TableCell>
+                                <TableCell sx={{ color: "white" }}>Away</TableCell>
                                 <TableCell sx={{ color: "white" }}>League</TableCell>
                             </TableRow>
                         </TableHead>
@@ -93,8 +93,8 @@ function TeamModule({teamID}) {
                                 <TableRow sx={{ backgroundColor: "#222231" }}>
                                     <TableCell sx={{ color: "white" }}>{scheduledMatch.date}</TableCell>
                                     <TableCell sx={{ color: "white" }}>{scheduledMatch.home}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{scheduledMatch.away}</TableCell>
                                     <TableCell sx={{ color: "white" }}>{scheduledMatch.score}</TableCell>
+                                    <TableCell sx={{ color: "white" }}>{scheduledMatch.away}</TableCell>
                                     <TableCell sx={{ color: "white" }}>{scheduledMatch.league}</TableCell>
                                 </TableRow>
                             )}
@@ -102,8 +102,8 @@ function TeamModule({teamID}) {
                                 <TableRow key={index}>
                                     <TableCell sx={{ color: "white" }}>{match.date}</TableCell>
                                     <TableCell sx={{ color: "white" }}>{match.home}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{match.away}</TableCell>
                                     <TableCell sx={{ color: "white" }}>{match.score}</TableCell>
+                                    <TableCell sx={{ color: "white" }}>{match.away}</TableCell>
                                     <TableCell sx={{ color: "white" }}>{match.league}</TableCell>
                                 </TableRow>
                             ))}

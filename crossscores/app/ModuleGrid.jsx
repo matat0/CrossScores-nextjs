@@ -26,6 +26,7 @@ function ModuleGrid(){
         addTeam,
         removeTeam
     }
+
     return(
         <>
             <TrackedTeamsContext.Provider value={contextValue}>
