@@ -5,6 +5,7 @@ import ApiTesting from './ApiTesting.jsx';
 import Searchbar from './Searchbar.jsx';
 import Dropdown from './Dropdown.jsx';
 import TeamModule from './TeamModule.jsx';
+import ModuleGrid from './ModuleGrid.jsx';
 
 function App() {
 
@@ -12,8 +13,8 @@ function App() {
     <div className="app-container">
       <Header/>
       <div className="workspace-container">
-        <TeamModule/>
-        <Module/>
+        
+        <ModuleGrid/>
       </div>
       <Welcome/>
     </div>
