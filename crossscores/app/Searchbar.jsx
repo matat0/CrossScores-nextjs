@@ -5,7 +5,6 @@ import { ModuleWindowContext } from './Module';
 import React, { useContext, useEffect, useState } from 'react'
 import supabase from './supabase'
 import "./Searchbar/Searchbar.css"
-
 const Searchbar = () => {
   const {addTeam} = useContext(TrackedTeamsContext);
   const {closeDropdown,
@@ -56,11 +55,13 @@ const Searchbar = () => {
   }
 
   function handleClick(s) {
+    //add something that stops you from picking the same team twice
+
     console.log(s);
 
     if(addTeam){
       console.log("successfully drilled to click: ", s.id)
-      addTeam(s.id)
+      addTeam(s.id, s.crest_url)
     } else{
       console.log("didnt drill")
     }
