@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-//api route to fill supabase database will all season and postseason scores (2024+2024POST)
+//api route to fill supabase database with all 2024season and postseason scores (2024+2024POST) and 2025
 //This is just to fill supabase, since 2025 season is not until september, this information will not change
 //Used by fetching api/football/allscores
 export async function GET(request){
@@ -8,7 +8,8 @@ export async function GET(request){
 
         const joinedData = {
                             reg: "",
-                            post: ""
+                            post: "",
+                            next:""
                             };
 
         console.log("trying to get all NFL scores")
@@ -42,8 +43,24 @@ export async function GET(request){
         const data2 = await response2.json();
         joinedData.post = data2;
 
+        const response3 = await fetch(
+            `https://api.sportsdata.io/v3/nfl/scores/json/Scores/2025?key=${process.env.NFL_API_KEY}`
+            );
+        if(!response.ok){
+            const errorText = await response.text();
+            console.error(`Error fetching reg season 2025:`, response.status, errorText);
+            return NextResponse.json(
+                { error: `error fetching  reg season 2025` },
+                { status: response.status }
+            );
+        }
         
+        const data3 = await response3.json();
+        console.log("this the 2025, ", data3)
+        joinedData.next = data3;
 
+        
+        console.log("this the jnoindat",  joinedData);
         return NextResponse.json(joinedData, { status: 200 });
         
         } 

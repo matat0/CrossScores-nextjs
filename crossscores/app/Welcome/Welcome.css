@@ -19,7 +19,7 @@ body.wcontainer-active {
 
 .welcome-module {
   background-color: #3a3b4f;
-  color: white;
+  color: rgb(255, 255, 255);
   height: 675px;
   width: 500px;
   padding: 40px 20px;
