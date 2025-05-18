@@ -13,7 +13,7 @@ function ModuleGrid(){
         if(!trackedTeamList.some(t => t.id === teamObject.id))
             setTrackedTeamList([...trackedTeamList, teamObject])
         else{
-            alert("you already added this team");
+            alert("You have already added this team.");
         }
     }
 
