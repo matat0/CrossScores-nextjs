@@ -67,7 +67,7 @@ function ApiTesting(){
                 const {id, name, shortName:shortname, tla, crest:crest_url, leagueCode, venue} = team;
 
                 const leagues = [leagueCode];
-                console.log("this is a team:")
+                console.log("this is a team from league: ", leagues)
                 console.log(team)
                 const { error } = await supabase.from('soccer-teams').upsert(
                     {

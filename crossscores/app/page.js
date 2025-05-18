@@ -16,8 +16,12 @@ function App() {
       <div className="workspace-container">
         <ModuleGrid/>
       </div>
-      {/*<Welcome/>*/}
+
+      <Welcome/>
+
+
     </div>
+    
   );
 
 }
