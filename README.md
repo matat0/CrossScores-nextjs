@@ -13,6 +13,8 @@ desktop web browser.
 
 **Link to Developer Manual: [Developer Manual](#developer-manual).**
 
+
+
 ### Developer Manual Introduction
 CrossScores utilizes both server-side and client-side rendering, because of this
 we make use of numerous modern web development languages including both
