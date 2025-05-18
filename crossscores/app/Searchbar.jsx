@@ -13,10 +13,38 @@ const Searchbar = () => {
   const[teamList, setTeamList] = useState([]);
   const [activeSearch, setActiveSearch] = useState([])
 
+        
 
 
   useEffect(() => {
+    const readNFLTeams = async () => {
+      try {
+        const response = await fetch('/NFL_teams.json');
+
+        if (!response.ok) {
+          console.error("error trying to get the file at /NFL_teams.json");
+          return;
+        }
+
+        const data = await response.json();
+        console.log("NFL teams: ", data);
+
+        return data;
+      } catch (error) {
+        console.error("fetch error: ", error);
+      }
+
+      
+    };
+
+    
+
     const fetchTeams = async () => {
+      const NFLrawjson = await readNFLTeams();
+      const formattedNFLTeams = await createNFLTeams(NFLrawjson);
+      console.log("transformed teams: ", formattedNFLTeams);
+
+
       const {data, error} = await supabase.from("soccer-teams").select("name, crest_url, id");
       console.log("Supabase data: ", data)
 
@@ -33,13 +61,28 @@ const Searchbar = () => {
                               crest_url: row.crest_url,
                               id:row.id}
                             ));
-      //console.log("Team names:", newTeamList);
-      setTeamList(newTeamList);
-      //console.log("teamList: ", teamList)
+
+
+      const combined = [...newTeamList, ...formattedNFLTeams];
+      console.log("Combined eam names:", combined);
+      setTeamList(combined);
+      
+
+
     };
+    
     fetchTeams();
+
+    
   },[]);
   
+  function createNFLTeams(NFLTeams){
+    return NFLTeams.map(team=> ({
+      name: team.city + " " + team.name,
+      id: team.city,
+      crest_url: `https://static.www.nfl.com/t_headshot_desktop/f_auto/league/api/clubs/logos/${team.abr}`
+    }))
+  }
 
   const handleSearch = (e) => {
       if(e.target.value.toLowerCase() == ''){

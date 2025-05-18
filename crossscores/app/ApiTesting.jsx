@@ -56,37 +56,109 @@ function ApiTesting(){
     }
     */
 
-    async function addTeamsToSupabase(){
-        const res = await fetch('api/teams?type=by-all-leagues');
-        const data = await res.json();
+    async function addTeamsToSupabase(sport){
+        if(sport == 'soccer'){
+            const res = await fetch(`api/${sport}/teams?type=by-all-leagues`);
+            const data = await res.json();
 
-        const{teams} = data;
+            const{teams} = data;
 
-        for(const team of teams) {
-            const {id, name, shortName:shortname, tla, crest:crest_url, leagueCode, venue} = team;
+            for(const team of teams) {
+                const {id, name, shortName:shortname, tla, crest:crest_url, leagueCode, venue} = team;
 
-            const leagues = [leagueCode];
-            console.log("this is a team:")
-            console.log(team)
-            const { error } = await supabase.from('soccer-teams').upsert(
-                {
-                    id,
-                    name,
-                    shortname,
-                    tla,
-                    crest_url,
-                    leagues,
-                    venue
-                },
-                {
-                    onConflict: 'id',
-                    merge: ['name', 'shortname', 'tla', 'crest_url', 'leagues', 'venue']
-                }
-                );
+                const leagues = [leagueCode];
+                console.log("this is a team:")
+                console.log(team)
+                const { error } = await supabase.from('soccer-teams').upsert(
+                    {
+                        id,
+                        name,
+                        shortname,
+                        tla,
+                        crest_url,
+                        leagues,
+                        venue
+                    },
+                    {
+                        onConflict: 'id',
+                        merge: ['name', 'shortname', 'tla', 'crest_url', 'leagues', 'venue']
+                    }
+                    );
 
-                if (error) {
-                console.error(`upsert error for ${name}:`, error.message, error.details);
-                }
+                    if (error) {
+                    console.error(`upsert error for ${name}:`, error.message, error.details);
+                    }
+            }
+        }else if(sport=="football"){
+            const res = await fetch(`api/${sport}/allscores`);
+            const data = await res.json();
+
+            console.log(data);
+
+            for(const score of data.post) {
+                const {
+                    GameKey:id, 
+                    Season:season,
+                    HomeTeam:home,
+                    HomeScore:home_score,
+                    AwayTeam:away,
+                    AwayScore:away_score,
+                    Date:date,
+                    Week:week
+                    } = score;
+
+                console.log("this is a score:")
+                console.log(score)
+                const { error } = await supabase.from('football-scores').upsert(
+                    {
+                        id,
+                        season,
+                        home,
+                        home_score,
+                        away,
+                        away_score,
+                        date,
+                        week
+                    }
+                    );
+
+                    if (error) {
+                    console.error(`upsert error for ${name}:`, error.message, error.details);
+                    }
+            }
+
+            for(const score of data.reg) {
+                const {
+                    GameKey:id, 
+                    Season:season,
+                    HomeTeam:home,
+                    HomeScore:home_score,
+                    AwayTeam:away,
+                    AwayScore:away_score,
+                    Date:date,
+                    Week:week
+                    } = score;
+
+                console.log("this is a score:")
+                console.log(score)
+                const { error } = await supabase.from('football-scores').upsert(
+                    {
+                        id,
+                        season,
+                        home,
+                        home_score,
+                        away,
+                        away_score,
+                        date,
+                        week
+                    }
+                    );
+
+                    if (error) {
+                    console.error(`upsert error for ${name}:`, error.message, error.details);
+                    }
+            }
+
         }
     }
 
@@ -94,7 +166,8 @@ function ApiTesting(){
 
     return (<div className="container">
                 <h2>Team test:</h2>
-                <button onClick={()=> addTeamsToSupabase()}>Update teams in supabase</button>
+                <button onClick={()=> addTeamsToSupabase('soccer')}>Update soccer teams in supabase</button>
+                <button onClick={()=> addTeamsToSupabase('football')}>Update football teams in supabase</button>
                 <ul>
                     {/* {teams.map((team) => {
                         console.log(`trying to add team: ${team.name} with id: ${team.id} shortname: ${team.shortname} and tla: ${team.tla}`);
