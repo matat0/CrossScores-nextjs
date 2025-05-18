@@ -13,7 +13,7 @@ desktop web browser.
 
 **Link to Developer Manual: [Developer Manual](#developer-manual).**
 
-## Developer Manual Introduction
+### Developer Manual Introduction
 CrossScores utilizes both server-side and client-side rendering, because of this
 we make use of numerous modern web development languages including both
 React and Next.js. 
@@ -43,7 +43,7 @@ of code which is returned in the ***page.js***.
   );
 ```
 
-### Developer Manual
+## Developer Manual
 To install our application and all dependencies you are first required to install ***Node.js***
 The latest version of Node.js can be found [Here](https://nodejs.org/en/download).
 
@@ -73,11 +73,11 @@ npm i dayjs-timezone-iana-plugin
 
 Firstly, we installed ***Supabase***. This online database tool 
 allowed us to use SQL to manage large amounts of data in organized tables, then fetch
-it into organized objects to be used in our sight.
+it into organized objects to be used on our site.
 
 ***2. MaterialUI*** 
 
-Secondly, we installed ***MaterialUI**. This is an open sourced React 
+Secondly, we installed ***MaterialUI***. This is an open sourced React 
 library which houses a plethora of User Interface components and elements, based on Material 
 Design by Google.
 
