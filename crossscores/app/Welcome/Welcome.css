@@ -34,13 +34,11 @@ body.wcontainer-active {
 .welcome-module h2 {
   text-align: center;
   top: 0px;
-  text-shadow: 10px 10px 6px rgba(0, 0, 0, 0.2);
 }
 
 #wbodytext {
   text-align: center;
   flex-grow: 1;
-  text-shadow: 10px 10px 6px rgba(0, 0, 0, 0.2);
 }
 
 .begin {

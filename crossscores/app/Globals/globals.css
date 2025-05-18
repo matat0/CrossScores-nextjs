@@ -39,7 +39,7 @@ body {
 }
 
 .header-label {
-  position: fixed;
+  position: absolute;
   flex-grow: 1;
   display: flex;
   justify-content: center;

@@ -9,11 +9,11 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
 .TeamModule {
     background-color: $bg-module;
     padding: 25px;
-    margin: 50px 12px 50px 12px;
+    margin: 50px 12px 0px 12px;
     border-radius:8px;
     box-shadow: $shadow-window;
-    height:550px;
-    width:700px;
+    height:600px;
+    width:550px;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -23,10 +23,6 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
     z-index: 3;
     position: relative;
   }
-
-.team-table-container {
-  border-width:20px;
-}
 
 #team-module-header {
   margin: 0px 10px 0px 10px;
@@ -60,6 +56,8 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
   height:40px;
   background-color:white;
   padding:5px;
+  border-radius:8px;
+  box-shadow:$shadow-window;
 }
 
 .date-container {
@@ -73,6 +71,15 @@ $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
   border-radius:8px;
   padding: 2px;
   position:absolute;
-  top:10px;
-  left:635px;
+  top:18px;
+  left:488px;
+  box-shadow:$shadow-window;
 }
+
+.module-grid-container {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+

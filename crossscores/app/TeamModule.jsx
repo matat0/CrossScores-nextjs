@@ -127,7 +127,10 @@ function TeamModule({team}) {
                         <TableBody>
                             {scheduledMatch && (
                                 
-                                <TableRow sx={{ backgroundColor: "#222231", boxShadow: 3 }}>
+                                <TableRow className="scheduled-row" sx={{ 
+                                    backgroundColor: "#222231", 
+                                    boxShadow: 3, 
+                                    height:125}}>
                                     <TableCell>
                                         <div className="date-container">
                                             <div>

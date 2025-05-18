@@ -30,12 +30,14 @@ function ModuleGrid(){
     return(
         <>
             <TrackedTeamsContext.Provider value={contextValue}>
-                {
-                    trackedTeamList.map((teamObject) => (
-                    <TeamModule key={teamObject.id} team={teamObject}/>
-                    ))
-                }
-                <Module/>
+                <div className="module-grid-container">
+                    {
+                        trackedTeamList.map((teamObject) => (
+                        <TeamModule key={teamObject.id} team={teamObject}/>
+                        ))
+                    }
+                    <Module/>
+                </div>
             </TrackedTeamsContext.Provider>
         </>);
 
