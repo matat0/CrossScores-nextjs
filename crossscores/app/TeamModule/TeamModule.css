@@ -57,4 +57,13 @@
 .date-container {
   display: flex;
   flex-direction: column;
+}
+
+.close-team-button {
+  background-color: #222231;
+  border-radius: 8px;
+  padding: 2px;
+  position: absolute;
+  top: 10px;
+  left: 635px;
 }/*# sourceMappingURL=TeamModule.css.map */

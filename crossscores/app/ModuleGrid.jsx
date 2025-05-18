@@ -17,8 +17,8 @@ function ModuleGrid(){
         }
     }
 
-    function removeTeam(teamID){
-        setTrackedTeamList(trackedTeamList.filter(id => id !== teamID));
+    function removeTeam(teamObject){
+        setTrackedTeamList(trackedTeamList.filter(t => t.id !== teamObject.id));
     }
 
     const contextValue = {

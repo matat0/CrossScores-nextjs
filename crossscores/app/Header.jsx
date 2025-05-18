@@ -14,9 +14,9 @@ function Header() {
             <div className="header">
                 <div className ="burger-container">
                     <IconButton 
-                    onMouseEnter={()=> {setHovered(true)}} 
-                    onMouseLeave={()=>{setHovered(false)}}
-                    sx={{ color: 'white' }}
+                        onMouseEnter={()=> {setHovered(true)}} 
+                        onMouseLeave={()=>{setHovered(false)}}
+                        sx={{ color: 'white' }}
                     >
                         {hovered ? (<MenuOpenRoundedIcon></MenuOpenRoundedIcon>) : (<MenuRoundedIcon></MenuRoundedIcon>) }
                     </IconButton> 
