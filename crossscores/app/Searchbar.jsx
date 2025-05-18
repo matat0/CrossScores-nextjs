@@ -131,7 +131,7 @@ const Searchbar = () => {
                     {
                         activeSearch.map(s => (
                             <button className="button-results" key={s.name} type="button" onClick={() => handleClick(s)}>
-                              <img src={s.crest_url} alt={`crest  `} className="crest-img" />
+                              <img src={s.crest_url} alt={``} className="crest-img" />
                               <span >{s.name}, {s.id} </span>
                             </button>
                         ))
