@@ -13,9 +13,9 @@ function App() {
     <div className="app-container">
       <Header/>
       <div className="workspace-container">
-        
         <ModuleGrid/>
       </div>
+      <ApiTesting/>
       <Welcome/>
     </div>
   );

@@ -5,12 +5,15 @@ import { NextResponse } from "next/server";
   La Liga/Primera Division: PD
   Bundesliga: BL1
   Eredivisie - DED
-  Serie a -BSA
+  Serie a -SA
+  Serie a brazil -BSA
   Ligue 1 - FL1
   Primiera liga - PPL
-
+  European Championship - EC
+  Championship (england) - ELC
+  UEFA Champions League - CL
  */
-const leagueCodes = ["PL", "PD", "BL1", "DED", "BSA", "FL1", "PPL"];
+const leagueCodes = ["PL", "PD", "BL1", "DED", "SA", "FL1", "PPL", "EC", "ELC", "CL" ];
  
 export async function GET(request){
   const { searchParams } = new URL(request.url);
@@ -23,7 +26,7 @@ export async function GET(request){
   try {
     if (type === "by-all-leagues") {
       // by all leagues
-      //console.log("trying to get all leagues in the code list")
+      console.log("trying to get all leagues in the code list")
       for (const code of leagueCodes) {
         const response = await fetch(`https://api.football-data.org/v4/competitions/${code}/teams`, {
           headers: {

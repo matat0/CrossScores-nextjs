@@ -26,7 +26,7 @@ function TeamModule({team}) {
     useEffect(() => {
         async function setUpTeamModule() {
             console.log("making a new module to track teamID: ", teamID);
-            const res = await fetch(`api/matches?team=${teamID}`);
+            const res = await fetch(`api/soccer/matches?team=${teamID}`);
             const data = await res.json();
             const matches = data.matches;
 
