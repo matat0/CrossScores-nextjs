@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 //api route to get info on matches for a specific team
 //Used by fetching api/matches?team=${id}
 export async function GET(request){
-  const { searchParams } = new URL(request.url);
-  const team = searchParams.get("team");
-
+    const { searchParams } = new URL(request.url);
+    const team = searchParams.get("team");
+    console.log("this the req: " , request);
 
 
 

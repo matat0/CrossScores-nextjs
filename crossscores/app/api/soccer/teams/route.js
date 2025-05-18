@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 //api route to get all the teams within the following leagues
 /*
+  Leagues confirmed working:
   Premier League: PL
   La Liga/Primera Division: PD
   Bundesliga: BL1
@@ -9,10 +10,9 @@ import { NextResponse } from "next/server";
   Serie a brazil -BSA
   Ligue 1 - FL1
   Primera liga - PPL
-  Championship (england) - ELC
   UEFA Champions League - CL
  */
-const leagueCodes = ["PL", "PD", "BL1", "DED", "SA", "BSA", "FL1", "PPL", "ELC", "CL" ];
+const leagueCodes = ["PL", "PD", "BL1", "DED", "SA", "BSA", "FL1", "PPL", "CL" ];
  
 export async function GET(request){
   const { searchParams } = new URL(request.url);
