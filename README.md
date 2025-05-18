@@ -90,3 +90,21 @@ plugins. Our Supabase database housed sports matches with specific dates and tim
 in the UTC format. In order to translate this timezone to whatever local timezone
 is used near the user, we used these packages in order to easily convert the UTC
 format into the local timezone.
+
+
+## Running The Application on a Server
+In order to get live feedback on any changes made on the project you need to
+host the project on a local server. Luckily, through Node we can easily
+host this through the following command.
+```
+cd crossscores
+npm run dev
+```
+By running this command in the **CMD Terminal** (**NOT THE POWERSHELL TERMINAL**),
+you open the crossscores directory, which is the folder the project is saved in,
+then the next command will begin to host the project on a local host. Simply
+click the IP appdress listed in the Command Prompt, and any changes made
+on the project will be uploaded instantly to the local server.
+
+
+## Running Tsts for the Software
