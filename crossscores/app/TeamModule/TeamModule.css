@@ -2,11 +2,11 @@
 .TeamModule {
   background-color: #3a3b4f;
   padding: 25px;
-  margin: 50px 12px 50px 12px;
+  margin: 50px 12px 0px 12px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  height: 550px;
-  width: 700px;
+  height: 600px;
+  width: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,10 +15,6 @@
   text-align: center;
   z-index: 3;
   position: relative;
-}
-
-.team-table-container {
-  border-width: 20px;
 }
 
 #team-module-header {
@@ -52,9 +48,28 @@
   height: 40px;
   background-color: white;
   padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .date-container {
   display: flex;
   flex-direction: column;
+}
+
+.close-team-button {
+  background-color: #222231;
+  border-radius: 8px;
+  padding: 2px;
+  position: absolute;
+  top: 18px;
+  left: 488px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.module-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }/*# sourceMappingURL=TeamModule.css.map */

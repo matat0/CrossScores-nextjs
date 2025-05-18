@@ -17,8 +17,8 @@ function ModuleGrid(){
         }
     }
 
-    function removeTeam(teamID){
-        setTrackedTeamList(trackedTeamList.filter(id => id !== teamID));
+    function removeTeam(teamObject){
+        setTrackedTeamList(trackedTeamList.filter(t => t.id !== teamObject.id));
     }
 
     const contextValue = {
@@ -30,12 +30,14 @@ function ModuleGrid(){
     return(
         <>
             <TrackedTeamsContext.Provider value={contextValue}>
-                {
-                    trackedTeamList.map((teamObject) => (
-                    <TeamModule key={teamObject.id} team={teamObject}/>
-                    ))
-                }
-                <Module/>
+                <div className="module-grid-container">
+                    {
+                        trackedTeamList.map((teamObject) => (
+                        <TeamModule key={teamObject.id} team={teamObject}/>
+                        ))
+                    }
+                    <Module/>
+                </div>
             </TrackedTeamsContext.Provider>
         </>);
 

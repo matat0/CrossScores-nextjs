@@ -1,6 +1,10 @@
 "use client";
 import './TeamModule/TeamModule.css'
-import {useState, useEffect} from 'react'
+import { TrackedTeamsContext } from './ModuleGrid';
+import {useState, useContext, useEffect} from 'react'
+import IconButton from '@mui/material/IconButton';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import DisabledByDefaultRoundedIcon from '@mui/icons-material/DisabledByDefaultRounded';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,10 +21,13 @@ dayjs.extend(timezone);
 
 function TeamModule({team}) {
     
+
     const teamID = team.id;
     const teamName = team.name;
     const [matchList, setMatchList] = useState([]);
-    const [scheduledMatch, setScheduledMatch] = useState(null); 
+    const [scheduledMatch, setScheduledMatch] = useState(null);
+    const {removeTeam} = useContext(TrackedTeamsContext);
+    const [hovered, setHovered] = useState(false);
 
     function createMatch(home, away, date, time,  league, score, status, homeCrest, awayCrest) {
         return { home, away, date, time, league, score, status, homeCrest, awayCrest};
@@ -89,6 +96,16 @@ function TeamModule({team}) {
         <>
             
             <div className="TeamModule">
+                <div className="close-team-button">
+                    <IconButton 
+                        onMouseEnter={()=> {setHovered(true)}} 
+                        onMouseLeave={()=>{setHovered(false)}}
+                        sx={{ color: 'white' }}
+                        onClick={() => removeTeam(team)}
+                    >
+                        {hovered ? (<DisabledByDefaultRoundedIcon sx={{scale:1.5}}></DisabledByDefaultRoundedIcon>) : (<CloseRoundedIcon></CloseRoundedIcon>) }
+                    </IconButton>
+                </div>
                 <div id='title-container'>
                     <img src={team.crest_url} id="team-crest-url"></img>
                     <h2 id='team-module-header'>{teamName}</h2>
@@ -99,7 +116,7 @@ function TeamModule({team}) {
                         '& .MuiTableCell-root': {color: 'white', borderBottom:'0px', fontFamily: 'var(--font-nunito)', fontWeight: 'bold', fontSize:15}
                         }}>
                         <TableHead >
-                            <TableRow>
+                            <TableRow sx={{backgroundColor:"#2b2c3b"}}>
                                 <TableCell>Date</TableCell>
                                 <TableCell>Home</TableCell>
                                 <TableCell>Score</TableCell>
@@ -110,7 +127,10 @@ function TeamModule({team}) {
                         <TableBody>
                             {scheduledMatch && (
                                 
-                                <TableRow sx={{ backgroundColor: "#222231", boxShadow: 3 }}>
+                                <TableRow className="scheduled-row" sx={{ 
+                                    backgroundColor: "#222231", 
+                                    boxShadow: 3, 
+                                    height:125}}>
                                     <TableCell>
                                         <div className="date-container">
                                             <div>
