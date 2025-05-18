@@ -125,7 +125,7 @@ function TeamModule({team}) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {scheduledMatch && (
+                            {scheduledMatch ? (
                                 
                                 <TableRow className="scheduled-row" sx={{ 
                                     backgroundColor: "#222231", 
@@ -158,7 +158,35 @@ function TeamModule({team}) {
                                         <img src={scheduledMatch.league} id="league-emblem"></img>
                                     </TableCell>
                                 </TableRow>
-                            )}
+                            ):<TableRow className="loading-row"  sx={{ 
+                                backgroundColor: "#222231", 
+                                boxShadow: 3, 
+                                height:125}}>
+                                    <TableCell>
+                                        <div className="date-container">
+                                            <div>
+                                                Loading... 
+                                            </div>
+                                            <div>
+                                                
+                                            </div>
+                                        </div>
+                                        </TableCell>
+                                    <TableCell>
+                                        <div className="crest-name-container" id="upcoming-home-container">
+                                            Loading... 
+                                        </div>
+                                    </TableCell>
+                                    <TableCell>Loading... </TableCell>
+                                    <TableCell>
+                                        <div className="crest-name-container" id="upcoming-away-container">
+                                            Loading... 
+                                        </div>
+                                    </TableCell>
+                                    <TableCell>
+                                        Loading...
+                                    </TableCell>
+                                </TableRow> }
                             {matchList.map((match, index) => (
                                 <TableRow key={index} sx={{boxShadow: 3 }}>
                                     <TableCell>
