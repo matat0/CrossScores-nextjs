@@ -92,7 +92,7 @@ const Searchbar = () => {
       if(teamList && teamList.length > 0){
         setActiveSearch(
           teamList
-            .filter(t => t && t.name.toLowerCase().includes(e.target.value))
+            .filter(t => t && t.name.toLowerCase().includes(e.target.value.toLowerCase()))
             .slice(0,8))
       }
   }
