@@ -103,8 +103,8 @@ npm run dev
 By running this command in the **CMD Terminal** (**NOT THE POWERSHELL TERMINAL**),
 you open the crossscores directory, which is the folder the project is saved in,
 then the next command will begin to host the project on a local host. Simply
-click the IP appdress listed in the Command Prompt, and any changes made
+click the IP address listed in the Command Prompt, and any changes made
 on the project will be uploaded instantly to the local server.
 
 
-## Running Tsts for the Software
+## Running Tets for the Software
