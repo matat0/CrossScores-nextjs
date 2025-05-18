@@ -107,4 +107,4 @@ click the IP address listed in the Command Prompt, and any changes made
 on the project will be uploaded instantly to the local server.
 
 
-## Running Tets for the Software
+## Running Tests for the Software
