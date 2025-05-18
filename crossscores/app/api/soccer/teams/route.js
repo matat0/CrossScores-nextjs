@@ -8,12 +8,11 @@ import { NextResponse } from "next/server";
   Serie a -SA
   Serie a brazil -BSA
   Ligue 1 - FL1
-  Primiera liga - PPL
-  European Championship - EC
+  Primera liga - PPL
   Championship (england) - ELC
   UEFA Champions League - CL
  */
-const leagueCodes = ["PL", "PD", "BL1", "DED", "SA", "FL1", "PPL", "EC", "ELC", "CL" ];
+const leagueCodes = ["PL", "PD", "BL1", "DED", "SA", "BSA", "FL1", "PPL", "ELC", "CL" ];
  
 export async function GET(request){
   const { searchParams } = new URL(request.url);

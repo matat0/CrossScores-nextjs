@@ -107,8 +107,8 @@ function ApiTesting(){
                     Week:week
                     } = score;
 
-                console.log("this is a score:")
-                console.log(score)
+                console.log("this is a 2024 post score:")
+                console.log(score.Season)
                 const { error } = await supabase.from('football-scores').upsert(
                     {
                         id,
@@ -139,8 +139,8 @@ function ApiTesting(){
                     Week:week
                     } = score;
 
-                console.log("this is a score:")
-                console.log(score)
+                console.log("this is a 2024 reg score:")
+                console.log(score.Season)
                 const { error } = await supabase.from('football-scores').upsert(
                     {
                         id,
@@ -159,6 +159,37 @@ function ApiTesting(){
                     }
             }
 
+            for(const score of data.next) {
+                const {
+                    GameKey:id, 
+                    Season:season,
+                    HomeTeam:home,
+                    HomeScore:home_score,
+                    AwayTeam:away,
+                    AwayScore:away_score,
+                    Date:date,
+                    Week:week
+                    } = score;
+
+                console.log("this is a 2025 score:")
+                console.log(score.Season)
+                const { error } = await supabase.from('football-scores').upsert(
+                    {
+                        id,
+                        season,
+                        home,
+                        home_score,
+                        away,
+                        away_score,
+                        date,
+                        week
+                    }
+                    );
+
+                    if (error) {
+                    console.error(`upsert error for ${name}:`, error.message, error.details);
+                    }
+            }
         }
     }
 

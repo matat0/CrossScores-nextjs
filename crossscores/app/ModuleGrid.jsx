@@ -3,7 +3,8 @@
 import { useState, useContext, createContext} from "react";
 import TeamModule from "./TeamModule";
 import Module from "./Module";
-
+import NFLModule
+ from "./NFLModule";
 const TrackedTeamsContext = createContext();
 
 function ModuleGrid(){
@@ -32,9 +33,15 @@ function ModuleGrid(){
             <TrackedTeamsContext.Provider value={contextValue}>
                 <div className="module-grid-container">
                     {
-                        trackedTeamList.map((teamObject) => (
-                        <TeamModule key={teamObject.id} team={teamObject}/>
-                        ))
+                        trackedTeamList.map((teamObject) => {
+                            switch(teamObject.sport){
+                                case "soccer":
+                                    return <TeamModule key={teamObject.id} team={teamObject} />
+                                case "football":
+                                    console.log("trying to make NFLmodule, ", teamObject);
+                                    return <NFLModule key={teamObject.id} team={teamObject} />
+                            }
+                        })
                     }
                     <Module/>
                 </div>

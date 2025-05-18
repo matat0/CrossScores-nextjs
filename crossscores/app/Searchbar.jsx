@@ -59,7 +59,9 @@ const Searchbar = () => {
                             .map(row => ({
                               name:row.name, 
                               crest_url: row.crest_url,
-                              id:row.id}
+                              id:row.id, 
+                              sport: "soccer"
+                          }
                             ));
 
 
@@ -79,8 +81,9 @@ const Searchbar = () => {
   function createNFLTeams(NFLTeams){
     return NFLTeams.map(team=> ({
       name: team.city + " " + team.name,
-      id: team.city,
-      crest_url: `https://static.www.nfl.com/t_headshot_desktop/f_auto/league/api/clubs/logos/${team.abr}`
+      id: team.abr,
+      crest_url: `https://static.www.nfl.com/t_headshot_desktop/f_auto/league/api/clubs/logos/${team.abr}`,
+      sport: "football"
     }))
   }
 

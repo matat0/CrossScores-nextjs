@@ -16,7 +16,9 @@ function App() {
         <ModuleGrid/>
       </div>
       <Welcome/>
+      <ApiTesting/>
     </div>
+    
   );
 
 }
