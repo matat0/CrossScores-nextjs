@@ -45,7 +45,7 @@ of code which is returned in the ***page.js***.
   );
 ```
 
-## Developer Manual
+# Developer Manual
 To install our application and all dependencies you are first required to install ***Node.js***
 The latest version of Node.js can be found [Here](https://nodejs.org/en/download).
 
@@ -70,7 +70,7 @@ npm i dayjs-plugin-utc --save
 npm i dayjs-timezone-iana-plugin
 ```
 
-### Installed Libraries/Plugins/Dependencies:
+## Installed Libraries/Plugins/Dependencies:
 ***1. Supabase*** 
 
 Firstly, we installed ***Supabase***. This online database tool 
