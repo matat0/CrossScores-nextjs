@@ -62,10 +62,13 @@ const Searchbar = () => {
                               id:row.id}
                             ));
 
+
       const combined = [...newTeamList, ...formattedNFLTeams];
       console.log("Combined eam names:", combined);
       setTeamList(combined);
       
+
+
     };
     
     fetchTeams();
@@ -97,13 +100,13 @@ const Searchbar = () => {
   function handleClick(s) {
     //add something that stops you from picking the same team twice
 
-    console.log(s);
+    //console.log(s);
 
     if(addTeam){
-      console.log("successfully drilled to click: ", s.id)
+      //console.log("successfully drilled to click: ", s.id)
       addTeam(s)
     } else{
-      console.log("didnt drill")
+      //console.log("didnt drill")
     }
     if (setSelectedTeam) {
       setSelectedTeam(s.id);

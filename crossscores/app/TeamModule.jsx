@@ -8,7 +8,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import dayjs from 'dayjs';
+import utc from 'dayjs-plugin-utc';
+import timezone from 'dayjs-timezone-iana-plugin';
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 function TeamModule({team}) {
     
@@ -17,8 +22,8 @@ function TeamModule({team}) {
     const [matchList, setMatchList] = useState([]);
     const [scheduledMatch, setScheduledMatch] = useState(null); 
 
-    function createMatch(home, away, date, league, score, status, homeCrest, awayCrest) {
-        return { home, away, date, league, score, status, homeCrest, awayCrest};
+    function createMatch(home, away, date, time,  league, score, status, homeCrest, awayCrest) {
+        return { home, away, date, time, league, score, status, homeCrest, awayCrest};
     }
 
 
@@ -35,21 +40,21 @@ function TeamModule({team}) {
 
             //loop backwards from end of array (chronological order) to get most recent matches
             for (let i = matches.length - 1; i >= 0 && recent.length < 3; i--) {
-                console.log(matches[i]);
                 const match = matches[i];
                 const home = match.homeTeam.tla;
                 const away = match.awayTeam.tla;
                 const homeCrest = match.homeTeam.crest;
                 const awayCrest = match.awayTeam.crest;
-                const date = match.utcDate;
-                const league = match.competition.code;
+                const date = dayjs.utc(match.utcDate).local().format('MMM DD, YYYY');
+                const time = dayjs.utc(match.utcDate).local().format('h:mm A');
+                const league = match.competition.emblem;
                 const status = match.status;
 
                 let score = "-";
                 if (status === "FINISHED") {
                     //if match is finished, add to list
                     score = `${match.score.fullTime.home} - ${match.score.fullTime.away}`;
-                    recent.push(createMatch(home, away, date, league, score, status));
+                    recent.push(createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest));
                 }
             }
 
@@ -58,16 +63,16 @@ function TeamModule({team}) {
                 if (match.status === "SCHEDULED" || match.status === "TIMED") {
                     //if match is upcoming, replace match
                     //most recently replaced match will be the soonest match
-                    console.log(matches[i]);
                     const home = match.homeTeam.tla;
                     const away = match.awayTeam.tla;
                     const homeCrest = match.homeTeam.crest;
                     const awayCrest = match.awayTeam.crest;
-                    const date = match.utcDate;
-                    const league = match.competition.code;
+                    const date = dayjs.utc(match.utcDate).local().format('MMM DD, YYYY');
+                    const time = dayjs.utc(match.utcDate).local().format('h:mm A');
+                    const league = match.competition.emblem;
                     const status = match.status;
                     const score = "-";
-                    upcoming = createMatch(home, away, date, league, score, status);
+                    upcoming = createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest);
                     break;
                 }
             }
@@ -79,7 +84,7 @@ function TeamModule({team}) {
         setUpTeamModule();
     }, [teamID]);
 
-
+    console.log(scheduledMatch)
     return(
         <>
             
@@ -88,40 +93,80 @@ function TeamModule({team}) {
                     <img src={team.crest_url} id="team-crest-url"></img>
                     <h2 id='team-module-header'>{teamName}</h2>
                 </div>
-                <TableContainer component={Paper} sx={{backgroundColor: 'transparent'}}>
-                    <Table sx={{ color: "white" }}>
-                        <TableHead>
+                <TableContainer component={Paper} sx={{backgroundColor: 'transparent', boxShadow:10}}>
+                    <Table sx={{ 
+                        color: "white", 
+                        '& .MuiTableCell-root': {color: 'white', borderBottom:'0px', fontFamily: 'var(--font-nunito)', fontWeight: 'bold', fontSize:15}
+                        }}>
+                        <TableHead >
                             <TableRow>
-                                <TableCell sx={{ color: "white" }}>Date</TableCell>
-                                <TableCell sx={{ color: "white" }}>Home</TableCell>
-                                <TableCell sx={{ color: "white" }}>Score</TableCell>
-                                <TableCell sx={{ color: "white" }}>Away</TableCell>
-                                <TableCell sx={{ color: "white" }}>League</TableCell>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Home</TableCell>
+                                <TableCell>Score</TableCell>
+                                <TableCell>Away</TableCell>
+                                <TableCell>League</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {scheduledMatch && (
-                                <TableRow sx={{ backgroundColor: "#222231" }}>
-                                    <TableCell sx={{ color: "white" }}>{scheduledMatch.date}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>
-                                        <div>
+                                
+                                <TableRow sx={{ backgroundColor: "#222231", boxShadow: 3 }}>
+                                    <TableCell>
+                                        <div className="date-container">
+                                            <div>
+                                               {scheduledMatch.date} 
+                                            </div>
+                                           <div>
+                                                {scheduledMatch.time}
+                                           </div>
+                                        </div>
+                                        </TableCell>
+                                    <TableCell>
+                                        <div className="crest-name-container" id="upcoming-home-container">
+                                            <img src={scheduledMatch.homeCrest}></img>
                                             {scheduledMatch.home}
                                         </div>
                                     </TableCell>
-                                    <TableCell sx={{ color: "white" }}>{scheduledMatch.score}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>
-                                        {scheduledMatch.away}
+                                    <TableCell>{scheduledMatch.score}</TableCell>
+                                    <TableCell>
+                                        <div className="crest-name-container" id="upcoming-away-container">
+                                            <img src={scheduledMatch.awayCrest}></img>
+                                            {scheduledMatch.away}
+                                        </div>
                                     </TableCell>
-                                    <TableCell sx={{ color: "white" }}>{scheduledMatch.league}</TableCell>
+                                    <TableCell>
+                                        <img src={scheduledMatch.league} id="league-emblem"></img>
+                                    </TableCell>
                                 </TableRow>
                             )}
                             {matchList.map((match, index) => (
-                                <TableRow key={index}>
-                                    <TableCell sx={{ color: "white" }}>{match.date}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{match.home}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{match.score}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{match.away}</TableCell>
-                                    <TableCell sx={{ color: "white" }}>{match.league}</TableCell>
+                                <TableRow key={index} sx={{boxShadow: 3 }}>
+                                    <TableCell>
+                                        <div className="date-container">
+                                            <div>
+                                                {match.date}
+                                            </div>
+                                            <div>
+                                                {match.time} 
+                                            </div>
+                                        </div>
+                                        </TableCell>
+                                    <TableCell>
+                                        <div className="crest-name-container" id="past-home-container">
+                                            <img src={match.homeCrest}></img>
+                                            {match.home}
+                                        </div>
+                                    </TableCell>
+                                    <TableCell>{match.score}</TableCell>
+                                    <TableCell>
+                                        <div className="crest-name-container" id="past-away-container">
+                                            <img src={match.awayCrest}></img>
+                                            {match.away}
+                                        </div>
+                                    </TableCell>
+                                    <TableCell>
+                                        <img src={match.league} id="league-emblem"></img>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
