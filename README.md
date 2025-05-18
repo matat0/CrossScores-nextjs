@@ -49,7 +49,7 @@ of code which is returned in the ***page.js***.
 To install our application and all dependencies you are first required to install ***Node.js***
 The latest version of Node.js can be found [Here](https://nodejs.org/en/download).
 
-When initially creating our app, we utilized an automatic installation provided to'
+When initially creating our app, we utilized an automatic installation provided to
 us by Next.js. We simply entered a line of code into our terminal, which setup the
 building blocks for our project. Although ***you aren't required*** to do this, 
 I will provide the line of code below if you wish to start your own project
