@@ -1,1 +1,81 @@
-/*# sourceMappingURL=Hamburger.css.map */
+.hamburger-menu-container {
+  color: white;
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  background-color: #222231;
+  height: 500px;
+  width: 200px;
+  z-index: 10000;
+  text-align: center;
+}
+
+#menu-label {
+  background-color: #3a3b4f;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.manu-options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  padding: 5px;
+  width: 100%;
+}
+
+#home-label, #about-label {
+  margin-left: 20px;
+}
+
+/* From Uiverse.io by mrhyddenn */
+.menu-options button {
+  background: #3a3b4f;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  width: 120px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+  margin-left: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-options span {
+  display: inline-block;
+  transform: skew(21deg);
+}
+
+.menu-options button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: #606174;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.menu-options button:hover {
+  color: #fff;
+}
+
+.menu-options button:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}/*# sourceMappingURL=Hamburger.css.map */

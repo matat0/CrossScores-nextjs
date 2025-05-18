@@ -44,11 +44,14 @@ body {
 .burger-container {
     position:absolute;
     left:15px;
+    top:50%;
+    transform: translateY(-50%);
+    z-index:5;
+
 }
 
 .header-label {
-    position:absolute;
-    flex-grow: 1;
+    position:static;
     display: flex;
     justify-content: center;
     align-items: center;
