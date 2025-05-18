@@ -1,0 +1,53 @@
+$bg: rgba(19,20,31,1);
+$bg-module: #3a3b4f;
+$bg-inner: #2b2c3b;
+$bg-button: #222231;
+$nunito: "Nunito", sans-serif;
+$shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
+
+
+.about-body-container {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+}
+
+.about-container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background-color:$bg-module;
+    color:white;
+    font-family:$nunito;
+    width:1000px;
+    height:550px;
+    border-radius:8px;
+    margin: 50px 0px 0px 0px;
+    box-shadow:$shadow-window;
+}
+
+.about-header-container {
+    background-color:$bg-inner;
+    padding:10px 110px 10px 110px;
+    align-items:center;
+    text-align:center;
+    border-radius:8px;
+    box-shadow:$shadow-window;
+}
+
+.about-header-container img {
+    width:50px;
+    height:50px;
+    border-radius:8px;  
+}
+
+.about-description-container {
+    margin-top: 10px;
+    text-align:center;
+    align-items:center;
+    width:500px;
+    box-shadow:$shadow-window;
+}
