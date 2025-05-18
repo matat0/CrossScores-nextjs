@@ -69,15 +69,18 @@ npm i dayjs-timezone-iana-plugin
 ```
 
 ### Installed Libraries/Plugins/Dependencies:
-*** 1. Supabase*** Firstly, we installed ***Supabase***. This online database tool 
+***1. Supabase*** 
+Firstly, we installed ***Supabase***. This online database tool 
 allowed us to use SQL to manage large amounts of data in organized tables, then fetch
 it into organized objects to be used in our sight.
 
-***2. MaterialUI*** Secondly, we installed ***MaterialUI**. This is an open sourced React 
+***2. MaterialUI*** 
+Secondly, we installed ***MaterialUI**. This is an open sourced React 
 library which houses a plethora of User Interface components and elements, based on Material 
 Design by Google.
 
-***3. DayJS*** Third, we installed ***DayJS***, along with the ***UTC*** and ***Timezone*** 
+***3. DayJS*** 
+Third, we installed ***DayJS***, along with the ***UTC*** and ***Timezone*** 
 plugins. Our Supabase database housed sports matches with specific dates and times 
 in the UTC format. In order to translate this timezone to whatever local timezone
 is used near the user, we used these packages in order to easily convert the UTC
