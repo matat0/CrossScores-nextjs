@@ -138,7 +138,7 @@ all of the data across the teams, and make api calls to see
 all of the results. There is one for each sport, the soccer 
 endpoint will regenerate the entire team list, and the football
 endpoint will regenerate all of the scores. Both will populate 
-their respective 
+their respective supabase tables with new data from their APIs.
 
 <br/>
 <br/>
