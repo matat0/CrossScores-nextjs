@@ -124,7 +124,7 @@ function NFLModule({team}) {
                                 <TableCell>Home</TableCell>
                                 <TableCell>Score</TableCell>
                                 <TableCell>Away</TableCell>
-                                {/*<TableCell>League</TableCell>*/}
+                                {<TableCell>Season</TableCell>}
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -157,9 +157,9 @@ function NFLModule({team}) {
                                             {scheduledMatch.away}
                                         </div>
                                     </TableCell>
-                                    {/*<TableCell>
-                                        <img src={scheduledMatch.league} id="league-emblem"></img>
-                                    </TableCell>*/}
+                                    <TableCell>
+                                        {scheduledMatch.league}
+                                    </TableCell>
                                 </TableRow>
                             ) :<TableRow className="loading-row"  sx={{ 
                                     backgroundColor: "#222231", 
@@ -186,9 +186,9 @@ function NFLModule({team}) {
                                             Loading... 
                                         </div>
                                     </TableCell>
-                                    {/*<TableCell>
-                                        <img src={scheduledMatch.league} id="league-emblem"></img>
-                                    </TableCell>*/}
+                                    <TableCell>
+                                        Loading...
+                                    </TableCell>
                                 </TableRow> }
                             {matchList.map((match, index) => (
                                 <TableRow key={index} sx={{boxShadow: 3 }}>
@@ -215,9 +215,9 @@ function NFLModule({team}) {
                                             {match.away}
                                         </div>
                                     </TableCell>
-                                    {/*<TableCell>
-                                        <img src={match.league} id="league-emblem"></img>
-                                    </TableCell>*/}
+                                    <TableCell>
+                                        {match.league}
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
