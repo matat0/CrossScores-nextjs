@@ -15,8 +15,6 @@ desktop web browser.
 
 <br/>
 <br/>
-<br/>
-<br/>
 
 ### Developer Manual Introduction
 CrossScores utilizes both server-side and client-side rendering, because of this
