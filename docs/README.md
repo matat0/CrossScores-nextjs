@@ -56,7 +56,7 @@ The latest version of Node.js can be found [Here](https://nodejs.org/en/download
 
 When initially creating our app, we utilized an automatic installation provided to'
 us by Next.js. We simply entered a line of code into our terminal, which setup the
-building blocks for our project. Although ***you aren't required*** to do this, 
+building blocks for our project. Although ***<ins>you aren't required to do this</ins>***, 
 I will provide the line of code below if you wish to start your own project
 in the future.
 ```
