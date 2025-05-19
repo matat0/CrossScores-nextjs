@@ -29,6 +29,11 @@
   margin-bottom: 30px;
 }
 
+.TeamModule img {
+  height: 25px;
+  width: 25px;
+}
+
 #team-crest-url {
   width: 40px;
   height: 40px;
