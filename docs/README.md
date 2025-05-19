@@ -136,5 +136,23 @@ As of right now, the **Welcome** module
 appears every time you visit the home page, when ideally it should only show on a first
 visit to the website.
 
+Another aspect of our application that needs to be noted is that **In Progress Games
+Don't Show**. So if a game were to be happening at the time of using the app, the app
+won't recognize it due to the logic in our code. However our API does have an 
+attribute listed for in progress games, so this issue will be easily fixed in the
+near future.
+
+### Roadmap/Down the Line
+We aren't done with this application and are very passionate in continuing to
+maintain and develop this over time. There are numerous improvements that can
+we aspire to implement and aim to keep adding more and more apps!
+
+As for a general roadmap, we are aiming to perfect the main 3 sports of 
+Basketball, Soccer, and American Football. When we get to a point where
+we find that these sports are fine tuned, we are going to continue to 
+implement more and more sports.
+
+We also plan adding additional information such as live scores, table position,
+players, and much more which can be fetched by our API's.
 
 
