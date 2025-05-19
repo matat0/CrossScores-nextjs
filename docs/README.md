@@ -66,7 +66,7 @@ npx create-next-app@latest
 ```
 
 Following this, we installed numerous dependencies, libraries, and packages through
-***npm***, a way to automatically import onlibe libraries into our project through
+***npm***, a way to automatically import online libraries into our project through
 the terminal. Below is a list of all the libraries, dependencies, and plugins used.
 
 ```
