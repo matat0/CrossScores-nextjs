@@ -132,13 +132,37 @@ on the project will be uploaded instantly to the local server.
 <br/>
 
 ## Running Tests for the Software
-Type this section blah blha blah
+All api testing was done with the component, ```<ApiTesting/>```.
+By placing this module in page.js, it adds buttons that allow you to update 
+all of the data across the teams, and make api calls to see 
+all of the results. There is one for each sport, the soccer 
+endpoint will regenerate the entire team list, and the football
+endpoint will regenerate all of the scores. Both will populate 
+their respective supabase tables with new data from their APIs.
 
 <br/>
 <br/>
 
 ## API Overview
-Type this section blahb lhablh
+The API endpoints in the app retrieve different sports information depending on the sport.
+The data is retrieved from a combination of 3 different sports apis and data stored in Supabase.
+Supabase contains two tables, "soccer-teams" and "football-scores". These are to store data that
+would be too expensive to automatically retrieve. They are accessed by a few of the following api
+endpoints.
+We used Nextjs Api Routers to make 5 different endpoints. They are as follows:
+- api/soccer
+  - /matches
+    - Makes a call to the football-data api based on the requested team ID to retrieve the past 3 matches, and upcoming matches if any exist. 
+  - /teams
+    - Makes a call to the football-data api, retrieving all teams in our covered league list and updating their current competitions in supabase.
+- api/football
+  - /allscores
+    - Makes a call to the sportsdata.io api to retrieve all score information. Since the NFL season does not begin until september, these will not change until then
+  - /teams
+    - Retrieves all of the matches that have the team requested from Supabase, chronologically ordered.
+- api/basketball
+  - /matches
+    - Makes a call to the balldontlie api and retrieves the last 3 and next upcoming matches containing the team.
 
 <br/>
 <br/>
@@ -153,7 +177,7 @@ As of right now, the **Welcome** module
 appears every time you visit the home page, when ideally it should only show on a first
 visit to the website.
 
-Idealy **we want the /home page in our application to be the defaulted page** to be sent to.
+Ideally **we want the /home page in our application to be the defaulted page** to be sent to.
 However, **it defaults to the Dashboard instead**. Due to the deep structure of our app it
 will be a tedious task to reroute all the file imports by changing around the default
 page layouts, so in time this bug can be fixed.
@@ -163,6 +187,10 @@ So if a game were to be happening at the time of using the app, the app
 won't recognize it due to the logic in our code. However our API does have an 
 attribute listed for in progress games, so this issue will be easily fixed in the
 near future.
+
+In addition, we are using the free tier of the sportsdata.io api, which "scrambles" some of the data,
+changing some aspects such as the score by ~5-20% up or down. This can cause some scores to be slightly off,
+but the dates and winning teams are correct, and it does not affect any functionality.
 
 ### Roadmap/Down the Line
 We aren't done with this application and are very passionate in continuing to
