@@ -2,6 +2,11 @@
 
 ## Created by Matthew Bangit & Yohannes Gebrechristos
 
+Please Use This Link When To Access Our App!
+https://cross-scores-nextjs.vercel.app/home
+
+Alternatively You Can Click [here](https://cross-scores-nextjs.vercel.app/home)
+
 ## Project Description
 CrossScores is a fully modular sports tracking website, allowing you to 
 easily search and add your favorite sports teams to keep track of past and 
