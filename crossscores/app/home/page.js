@@ -4,6 +4,11 @@ import Welcome from '../Welcome.jsx';
 import './home.css';
 import Image from "next/image"
 import img1 from '../assets/img1.png';
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import SportsFootballRoundedIcon from '@mui/icons-material/SportsFootballRounded';
+
 
 export default function Home() {
   return (
@@ -11,6 +16,10 @@ export default function Home() {
       <Welcome/>
       <Header/>
       <div className="home-body-container">
+        <div className="burger-reminder-container">
+          <ArrowUpwardRoundedIcon sx={{ fontSize: 28, color:'white', marginTop:'20px'}}></ArrowUpwardRoundedIcon>
+          <h2>Click to access navigation!</h2>
+        </div>
           <div className="home-container">
             <h1>Home</h1>
             <div className="home-outer-container">
@@ -34,15 +43,27 @@ export default function Home() {
               </div>
               <div className="home-steps-container">
                   <div className="steps" id="step1">
-                    <h2>Step 1</h2>
+                    <div className="step-number-container">
+                      <AddCircleRoundedIcon sx={{margin:'10px'}}></AddCircleRoundedIcon>
+                      <h2>Step 1</h2>
+                    </div>
+                    <p>Click Add and begin searching for your favorite sports teams</p>
                   </div>
 
                   <div className="steps" id="step2">
-                    <h2>Step 2</h2>
+                    <div className="step-number-container">
+                      <SearchRoundedIcon sx={{margin:'10px'}}></SearchRoundedIcon>
+                      <h2>Step 2</h2>
+                    </div>
+                    <p>Select a team from our database of varying sports</p>
                   </div>
 
                   <div className="steps" id="step3">
-                    <h2>Step 3</h2>
+                    <div className="step-number-container">
+                      <SportsFootballRoundedIcon sx={{margin:'10px'}}></SportsFootballRoundedIcon>
+                      <h2>Step 3</h2>
+                    </div>
+                    <p>Keep adding more trackers of your favorite teams!</p>
                   </div>
               </div>
             </div>
