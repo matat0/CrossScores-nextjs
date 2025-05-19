@@ -8,6 +8,7 @@ import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import SportsFootballRoundedIcon from '@mui/icons-material/SportsFootballRounded';
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -67,6 +68,14 @@ export default function Home() {
                   </div>
               </div>
             </div>
+              <div className="dashboard-home-button">
+                <Link href="/">
+                  <button id="home-button" className="begin">
+                    <span>Dashboard</span>
+                  </button>
+                </Link>
+              </div>
+              
           </div>
 
 
