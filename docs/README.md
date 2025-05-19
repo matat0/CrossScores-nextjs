@@ -13,8 +13,10 @@ desktop web browser.
 
 **Link to Developer Manual: [Developer Manual](#developer-manual).**
 
-  
-  
+<br/>
+<br/>
+<br/>
+<br/>
 
 ### Developer Manual Introduction
 CrossScores utilizes both server-side and client-side rendering, because of this
@@ -45,6 +47,8 @@ of code which is returned in the ***page.js***.
     </div>
   );
 ```
+<br/>
+<br/>
 
 ## Developer Manual
 To install our application and all dependencies you are first required to install ***Node.js***
@@ -98,7 +102,8 @@ in the UTC format. In order to translate this timezone to whatever local timezon
 is used near the user, we used these packages in order to easily convert the UTC
 format into the local timezone.
 
-  
+<br/>
+<br/>
   
 ## Running The Application on a Server
 In order to get live feedback on any changes made on the project you need to
