@@ -13,8 +13,8 @@ desktop web browser.
 
 **Link to Developer Manual: [Developer Manual](#developer-manual).**
 
-\
-
+  
+  
 
 ### Developer Manual Introduction
 CrossScores utilizes both server-side and client-side rendering, because of this
@@ -97,9 +97,9 @@ plugins. Our Supabase database housed sports matches with specific dates and tim
 in the UTC format. In order to translate this timezone to whatever local timezone
 is used near the user, we used these packages in order to easily convert the UTC
 format into the local timezone.
-\
 
-
+  
+  
 ## Running The Application on a Server
 In order to get live feedback on any changes made on the project you need to
 host the project on a local server. Luckily, through Node we can easily
