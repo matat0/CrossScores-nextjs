@@ -120,11 +120,20 @@ click the IP address listed in the Command Prompt, and any changes made
 on the project will be uploaded instantly to the local server.
 
 
+<br/>
+<br/>
+
 ## Running Tests for the Software
 Type this section blah blha blah
 
+<br/>
+<br/>
+
 ## API Overview
 Type this section blahb lhablh
+
+<br/>
+<br/>
 
 ## Bugs and Notices
 We plan to continue improving this application over time, so naturally there
