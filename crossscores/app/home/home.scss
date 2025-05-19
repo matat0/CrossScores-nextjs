@@ -5,3 +5,96 @@ $bg-button: #222231;
 $nunito: "Nunito", sans-serif;
 $shadow-window:  0px 4px 6px rgba(0, 0, 0, 0.2);
 
+.home-body-container {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+}
+
+.burger-reminder-container {
+    color:white;
+    position:absolute;
+    display:flex;
+    flex-direction:row;
+    left:20px;
+    top:30px;
+    z-index:3;
+}
+
+#arrow-icon {
+    top:40px;
+}
+
+.step-number-container {
+    display:flex;
+    flex-direction:row;
+}
+
+.home-container {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    color:white;
+    font-family:$nunito;
+    background-color:#181824;
+    width:1200px;
+    height:750px;
+    border-radius:8px;
+    margin: 50px 0px 0px 0px;
+    box-shadow:$shadow-window;
+}
+
+.home-list-container {
+    text-align:center;
+}
+
+.home-list-container ol {
+    list-style-position:inside;
+}
+
+.home-inner-container {
+    width:480px;
+    background-color:#222231;
+    padding: 40px 40px 40px 40px;
+    border-radius:8px;
+    box-shadow:$shadow-window;
+}
+
+.home-inner-container img {
+    margin-top: 20px;
+    box-shadow:$shadow-window;
+    border-radius:8px;
+}
+
+.home-steps-container {
+    width:400px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.home-steps-container p {
+    margin: 0px 60px 0px 60px;
+}
+
+.home-outer-container {
+    display:flex;
+    flex-direction:row;
+}
+
+.steps {
+    width:400px;
+    height:150px;
+    background-color:#222231;
+    margin: 0px 20px 0px 20px;
+    box-shadow:$shadow-window;
+    border-radius:8px;
+    text-align:start;
+}
+
+#step1, #step2 {
+    margin-bottom:20px;
+}
+
