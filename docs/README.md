@@ -14,8 +14,7 @@ desktop web browser.
 **Link to Developer Manual: [Developer Manual](#developer-manual).**
 
 \
-\
-\
+
 
 ### Developer Manual Introduction
 CrossScores utilizes both server-side and client-side rendering, because of this
@@ -99,7 +98,7 @@ in the UTC format. In order to translate this timezone to whatever local timezon
 is used near the user, we used these packages in order to easily convert the UTC
 format into the local timezone.
 \
-\
+
 
 ## Running The Application on a Server
 In order to get live feedback on any changes made on the project you need to
