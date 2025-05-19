@@ -132,7 +132,7 @@ on the project will be uploaded instantly to the local server.
 <br/>
 
 ## Running Tests for the Software
-All api testing was done with the component, <ApiTesting/>.
+All api testing was done with the component, ```<ApiTesting/>```.
 By placing this module in page.js, it allows you to update 
 all of the data across the teams, and make api calls to see 
 all of the results. There is one for each sport, the soccer 
