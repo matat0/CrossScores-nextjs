@@ -190,6 +190,13 @@ function ApiTesting(){
                     console.error(`upsert error for ${name}:`, error.message, error.details);
                     }
             }
+        } else if (sport == "basketball"){
+            console.log("making basketball api call");
+            const res = await fetch(`api/${sport}/matches?team=18`);
+            const data = await res.json();
+
+            console.log(data);
+
         }
     }
 
@@ -199,6 +206,7 @@ function ApiTesting(){
                 <h2>Team test:</h2>
                 <button onClick={()=> addTeamsToSupabase('soccer')}>Update soccer teams in supabase</button>
                 <button onClick={()=> addTeamsToSupabase('football')}>Update football teams in supabase</button>
+                <button onClick={()=> addTeamsToSupabase('basketball')}>Update basketball teams in supabase</button>
                 <ul>
                     {/* {teams.map((team) => {
                         console.log(`trying to add team: ${team.name} with id: ${team.id} shortname: ${team.shortname} and tla: ${team.tla}`);

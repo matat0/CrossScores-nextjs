@@ -37,12 +37,52 @@ const Searchbar = () => {
       
     };
 
-    
+    function createNFLTeams(NFLTeams){
+      return NFLTeams.map(team=> ({
+        name: team.city + " " + team.name,
+        id: team.abr,
+        crest_url: `https://static.www.nfl.com/t_headshot_desktop/f_auto/league/api/clubs/logos/${team.abr}`,
+        sport: "football"
+      }))
+    }
+
+    const readNBATeams = async () => {
+      try {
+        const response = await fetch('/NBA_teams.json');
+
+        if (!response.ok) {
+          console.error("error trying to get the file at /NFL_teams.json");
+          return;
+        }
+
+        const data = await response.json();
+        console.log("NFL teams: ", data);
+
+        return data;
+      } catch (error) {
+        console.error("fetch error: ", error);
+      }
+
+      
+    };
+
+    function createNBATeams(NBATeams){
+      return NBATeams.map(team=> ({
+        name: team.full_name,
+        id: team.id,
+        crest_url: `https://a.espncdn.com/i/teamlogos/nba/500/${team.abbreviation}.png`,
+        sport: "basketball"
+      }))
+    }
 
     const fetchTeams = async () => {
       const NFLrawjson = await readNFLTeams();
       const formattedNFLTeams = await createNFLTeams(NFLrawjson);
       console.log("transformed teams: ", formattedNFLTeams);
+
+      const NBArawjson = await readNBATeams();
+      const formattedNBATeams = await createNBATeams(NBArawjson);
+      console.log("transformed NBA teams", formattedNBATeams);
 
 
       const {data, error} = await supabase.from("soccer-teams").select("name, crest_url, id");
@@ -65,8 +105,8 @@ const Searchbar = () => {
                             ));
 
 
-      const combined = [...newTeamList, ...formattedNFLTeams];
-      console.log("Combined eam names:", combined);
+      const combined = [...newTeamList, ...formattedNFLTeams, ...formattedNBATeams];
+      console.log("Combined team names:", combined);
       setTeamList(combined);
       
 
@@ -78,14 +118,7 @@ const Searchbar = () => {
     
   },[]);
   
-  function createNFLTeams(NFLTeams){
-    return NFLTeams.map(team=> ({
-      name: team.city + " " + team.name,
-      id: team.abr,
-      crest_url: `https://static.www.nfl.com/t_headshot_desktop/f_auto/league/api/clubs/logos/${team.abr}`,
-      sport: "football"
-    }))
-  }
+  
 
   const handleSearch = (e) => {
       if(e.target.value.toLowerCase() == ''){
@@ -106,7 +139,7 @@ const Searchbar = () => {
     //console.log(s);
 
     if(addTeam){
-      //console.log("successfully drilled to click: ", s.id)
+      console.log("trying to add: ", s)
       addTeam(s)
     } else{
       //console.log("didnt drill")
