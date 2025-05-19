@@ -13,15 +13,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import dayjs from 'dayjs';
-import utc from 'dayjs-plugin-utc';
-import timezone from 'dayjs-timezone-iana-plugin';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-function TeamModule({team}) {
+function NBAModule({team}) {
     
-
+    console.log("this is the team for nbamod")
     const teamID = team.id;
     const teamName = team.name;
     const [matchList, setMatchList] = useState([]);
@@ -38,54 +38,58 @@ function TeamModule({team}) {
     useEffect(() => {
         async function setUpTeamModule() {
             console.log("making a new module to track teamID: ", teamID);
-            const res = await fetch(`api/soccer/matches?team=${teamID}`);
-            const data = await res.json();
-            const matches = data.matches;
-
+            const res = await fetch(`api/basketball/matches?team=${teamID}`);
+            const json = await res.json();
+            console.log("datatat" , json)
+            const matches = json.data;
+            
             const recent = [];
-            let upcoming = "";
-
-            //loop backwards from end of array (chronological order) to get most recent matches
-            for (let i = matches.length - 1; i >= 0 && recent.length < 3; i--) {
-                const match = matches[i];
-                const home = match.homeTeam.tla;
-                const away = match.awayTeam.tla;
-                const homeCrest = match.homeTeam.crest;
-                const awayCrest = match.awayTeam.crest;
-                const date = dayjs.utc(match.utcDate).local().format('MMM DD, YYYY');
-                const time = dayjs.utc(match.utcDate).local().format('h:mm A');
-                const league = match.competition.emblem;
-                const status = match.status;
+            
+            console.log("matchensd", matches);
+            matches.pastGamesSorted.map((match)=>{
+                console.log("match to make the real match lol", match)
+                const home = match.home_team.abbreviation;
+                const away = match.visitor_team.abbreviation;
+                const homeCrest = `https://a.espncdn.com/i/teamlogos/nba/500/${match.home_team.abbreviation}.png`;
+                const awayCrest = `https://a.espncdn.com/i/teamlogos/nba/500/${match.visitor_team.abbreviation}.png`;
+                const date = dayjs.utc(match.datetime).format('MMM DD, YYYY');
+                const time = dayjs.utc(match.datetime).format('h:mm A');
+                const league = match.season;
+                const status = (match.home_team_score == null? "SCHEDULED": "FINISHED");
 
                 let score = "-";
-                if (status === "FINISHED") {
-                    //if match is finished, add to list
-                    score = `${match.score.fullTime.home} - ${match.score.fullTime.away}`;
-                    recent.push(createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest));
-                }
-            }
+                score = `${match.home_team_score} - ${match.visitor_team_score}`;
+                recent.push(createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest));
+                
+            })        
+            let upcoming;       
+            console.log("mache next game is this right here: ", matches.nextGame);
+            if(matches.nextGame){
+                console.log("im in herer")
+                const match = matches.nextGame;
+                
+                const home = match.home_team.abbreviation;
+                const away = match.visitor_team.abbreviation;
+                const homeCrest = `https://a.espncdn.com/i/teamlogos/nba/500/${match.home_team.abbreviation}.png`;
+                const awayCrest = `https://a.espncdn.com/i/teamlogos/nba/500/${match.visitor_team.abbreviation}.png`;
+                const date = dayjs.utc(match.datetime).format('MMM DD, YYYY');
+                const time = dayjs.utc(match.datetime).format('h:mm A');
+                const league = match.season;
+                
 
-            for (let i = 0; i < matches.length; i++) {
-                const match = matches[i];
-                if (match.status === "SCHEDULED" || match.status === "TIMED") {
-                    //if match is upcoming, replace match
-                    //most recently replaced match will be the soonest match
-                    const home = match.homeTeam.tla;
-                    const away = match.awayTeam.tla;
-                    const homeCrest = match.homeTeam.crest;
-                    const awayCrest = match.awayTeam.crest;
-                    const date = dayjs.utc(match.utcDate).local().format('MMM DD, YYYY');
-                    const time = dayjs.utc(match.utcDate).local().format('h:mm A');
-                    const league = match.competition.emblem;
-                    const status = match.status;
-                    const score = "-";
-                    upcoming = createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest);
-                    break;
-                }
-            }
+                const status = "SCHEDULED";
 
+                let score = "-"
+                upcoming = createMatch(home, away, date, time, league, score, status, homeCrest, awayCrest);
+                console.log("upcoming thing this", upcoming);
+                
+                setScheduledMatch(upcoming);
+            } else{
+                
+                setScheduledMatch(upcoming);
+            }
             setMatchList(recent);
-            setScheduledMatch(upcoming);
+            
         }
 
         setUpTeamModule();
@@ -121,7 +125,7 @@ function TeamModule({team}) {
                                 <TableCell>Home</TableCell>
                                 <TableCell>Score</TableCell>
                                 <TableCell>Away</TableCell>
-                                <TableCell>League</TableCell>
+                                {/*<TableCell>League</TableCell>*/}
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -154,11 +158,11 @@ function TeamModule({team}) {
                                             {scheduledMatch.away}
                                         </div>
                                     </TableCell>
-                                    <TableCell>
+                                    {/*<TableCell>
                                         <img src={scheduledMatch.league} id="league-emblem"></img>
-                                    </TableCell>
+                                    </TableCell>*/}
                                 </TableRow>
-                            ) }
+                            )}
                             {matchList.map((match, index) => (
                                 <TableRow key={index} sx={{boxShadow: 3 }}>
                                     <TableCell>
@@ -184,9 +188,9 @@ function TeamModule({team}) {
                                             {match.away}
                                         </div>
                                     </TableCell>
-                                    <TableCell>
+                                    {/*<TableCell>
                                         <img src={match.league} id="league-emblem"></img>
-                                    </TableCell>
+                                    </TableCell>*/}
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -199,4 +203,4 @@ function TeamModule({team}) {
 
 }
 
-export default TeamModule
+export default NBAModule
