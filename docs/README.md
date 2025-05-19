@@ -145,8 +145,13 @@ As of right now, the **Welcome** module
 appears every time you visit the home page, when ideally it should only show on a first
 visit to the website.
 
-Another aspect of our application that needs to be noted is that **In Progress Games
-Don't Show**. So if a game were to be happening at the time of using the app, the app
+Idealy **we want the /home page in our application to be the defaulted page** to be sent to.
+However, **it defaults to the Dashboard instead**. Due to the deep structure of our app it
+will be a tedious task to reroute all the file imports by changing around the default
+page layouts, so in time this bug can be fixed.
+
+Another aspect of our application that needs to be noted is that **In Progress Games Don't Show**. 
+So if a game were to be happening at the time of using the app, the app
 won't recognize it due to the logic in our code. However our API does have an 
 attribute listed for in progress games, so this issue will be easily fixed in the
 near future.
