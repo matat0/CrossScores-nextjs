@@ -13,7 +13,9 @@ desktop web browser.
 
 **Link to Developer Manual: [Developer Manual](#developer-manual).**
 
-
+\
+\
+\
 
 ### Developer Manual Introduction
 CrossScores utilizes both server-side and client-side rendering, because of this
@@ -63,6 +65,7 @@ Following this, we installed numerous dependencies, libraries, and packages thro
 the terminal. Below is a list of all the libraries, dependencies, and plugins used.
 
 ```
+npm install next@latest react@latest react-dom@latest
 npm install @supabase/supabase-js
 npm install @mui/material @emotion/react @emotion/styled
 npm install dayjs
@@ -71,25 +74,32 @@ npm i dayjs-timezone-iana-plugin
 ```
 
 ### Installed Libraries/Plugins/Dependencies:
-***1. Supabase*** 
+**1. NextJS & ReactJS**  
+The most important piece of our project is the use of NextJS & ReactJS. Through
+these libraries described early, we are able to modularly develop this site, 
+reusing numerous HTML elements, without having to manually write it out every
+time.
 
-Firstly, we installed ***Supabase***. This online database tool 
-allowed us to use SQL to manage large amounts of data in organized tables, then fetch
-it into organized objects to be used on our site.
 
-***2. MaterialUI*** 
+**2. Supabase**  
 
-Secondly, we installed ***MaterialUI***. This is an open sourced React 
-library which houses a plethora of User Interface components and elements, based on Material 
-Design by Google.
+This online database tool allowed us to use SQL to manage large amounts of data 
+in organized tables, then fetch it into organized objects to be used on our site.
 
-***3. DayJS*** 
+**3. MaterialUI**  
 
-Third, we installed ***DayJS***, along with the ***UTC*** and ***Timezone*** 
+This is an open sourced React library which houses a plethora of User Interface 
+components and elements, based on Material Design by Google.
+
+**4. DayJS**  
+
+We installed ***DayJS***, along with the ***UTC*** and ***Timezone*** 
 plugins. Our Supabase database housed sports matches with specific dates and times 
 in the UTC format. In order to translate this timezone to whatever local timezone
 is used near the user, we used these packages in order to easily convert the UTC
 format into the local timezone.
+\
+\
 
 ## Running The Application on a Server
 In order to get live feedback on any changes made on the project you need to
@@ -112,4 +122,15 @@ Type this section blah blha blah
 ## API Overview
 Type this section blahb lhablh
 
-## API Overview
+## Bugs and Notices
+We plan to continue improving this application over time, so naturally there
+are lots of bugs and notices to be aware of. 
+
+
+### List of Bugs/Notices
+As of right now, the **Welcome** module
+appears every time you visit the home page, when ideally it should only show on a first
+visit to the website.
+
+
+
