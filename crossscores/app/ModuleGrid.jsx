@@ -3,15 +3,16 @@
 import { useState, useContext, createContext} from "react";
 import TeamModule from "./TeamModule";
 import Module from "./Module";
-import NFLModule
- from "./NFLModule";
+import NFLModule from "./NFLModule";
+import NBAModule from "./NBAModule";
+
 const TrackedTeamsContext = createContext();
 
 function ModuleGrid(){
     const [trackedTeamList, setTrackedTeamList] = useState([]);
 
     function addTeam(teamObject)  {
-        if(!trackedTeamList.some(t => t.id === teamObject.id))
+        if(!trackedTeamList.some(t => t.id === teamObject.id && t.sport === teamObject.sport))
             setTrackedTeamList([...trackedTeamList, teamObject])
         else{
             alert("You have already added this team.");
@@ -40,6 +41,9 @@ function ModuleGrid(){
                                 case "football":
                                     console.log("trying to make NFLmodule, ", teamObject);
                                     return <NFLModule key={teamObject.id} team={teamObject} />
+                                case "basketball":
+                                    console.log('trying to make nba module', teamObject);
+                                    return <NBAModule key={teamObject.id} team={teamObject} />
                             }
                         })
                     }
